@@ -330,7 +330,7 @@ const SymptomForm = () => {
         </form>
       </Form>
       <div className='mt-8'>
-        <h1 className='text-3xl font-semibold'>Result:</h1>
+        <h1 className='text-2xl font-semibold'>Result:</h1>
         {loading && <Skeleton className='w-full h-[40px] mt-4 rounded-full' />}
         {!loading && responseData && (
           <div>
