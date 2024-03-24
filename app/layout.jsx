@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
     <html lang='en'>
       <body className={`${inter.className} bg-neutral-900 w-full text-white flex min-h-screen relative`}>
         <Sidebar />
-        <div className='bg-neutral-900 w-full border-s-2 border-neutral-700 p-8'>{children}</div>
+        <div className='bg-neutral-800 w-full border-s-2 border-neutral-700  p-8 flex justify-center items-center'>{children}</div>
       </body>
     </html>
   );

@@ -10,6 +10,8 @@ import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrig
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "./ui/form";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Sparkle } from "lucide-react";
+import { Label } from "./ui/label";
+import { Checkbox } from "@/components/ui/checkbox";
 
 const SymptomForm = () => {
   const [responseData, setResponseData] = useState(null);
@@ -88,7 +90,7 @@ const SymptomForm = () => {
                     onValueChange={field.onChange}
                     defaultValue={field.value}
                   >
-                    <FormControl className='bg-gradient-to-tl from-neutral-800 to-neutral-700 border-neutral-600 px-4 py-8 rounded-2xl text-md text-neutral-400'>
+                    <FormControl className='bg-neutral-700 border-neutral-600 px-4 py-8 rounded-2xl text-md text-neutral-400'>
                       <SelectTrigger>
                         <SelectValue placeholder='Select a symptom' />
                       </SelectTrigger>
@@ -123,7 +125,7 @@ const SymptomForm = () => {
                     onValueChange={field.onChange}
                     defaultValue={field.value}
                   >
-                    <FormControl className='bg-gradient-to-tl from-neutral-800 to-neutral-700 border-neutral-600 px-4 py-8 rounded-2xl text-md text-neutral-400'>
+                    <FormControl className='bg-neutral-700 border-neutral-600 px-4 py-8 rounded-2xl text-md text-neutral-400'>
                       <SelectTrigger>
                         <SelectValue placeholder='Select a symptom' />
                       </SelectTrigger>
@@ -158,7 +160,7 @@ const SymptomForm = () => {
                     onValueChange={field.onChange}
                     defaultValue={field.value}
                   >
-                    <FormControl className='bg-gradient-to-tl from-neutral-800 to-neutral-700 border-neutral-600 px-4 py-8 rounded-2xl text-md text-neutral-400'>
+                    <FormControl className='bg-neutral-700 border-neutral-600 px-4 py-8 rounded-2xl text-md text-neutral-400'>
                       <SelectTrigger>
                         <SelectValue placeholder='Select a symptom' />
                       </SelectTrigger>
@@ -193,7 +195,7 @@ const SymptomForm = () => {
                     onValueChange={field.onChange}
                     defaultValue={field.value}
                   >
-                    <FormControl className='bg-gradient-to-tl from-neutral-800 to-neutral-700 border-neutral-600 px-4 py-8 rounded-2xl text-md text-neutral-400'>
+                    <FormControl className='bg-neutral-700 border-neutral-600 px-4 py-8 rounded-2xl text-md text-neutral-400'>
                       <SelectTrigger>
                         <SelectValue placeholder='(Optional) Select a symptom' />
                       </SelectTrigger>
@@ -228,7 +230,7 @@ const SymptomForm = () => {
                     onValueChange={field.onChange}
                     defaultValue={field.value}
                   >
-                    <FormControl className='bg-gradient-to-tl from-neutral-800 to-neutral-700 border-neutral-600 px-4 py-8 rounded-2xl text-md text-neutral-400'>
+                    <FormControl className='bg-neutral-700 border-neutral-600 px-4 py-8 rounded-2xl text-md text-neutral-400'>
                       <SelectTrigger>
                         <SelectValue placeholder='(Optional) Select a symptom' />
                       </SelectTrigger>
@@ -252,11 +254,18 @@ const SymptomForm = () => {
               )}
             />
           </div>
+          {/* <div className='flex gap-x-2 items-center text-white '>
+            <Checkbox
+              id='terms'
+              className='border-white border-3 ring-offset-white'
+            />
+            <Label htmlFor='terms'>I acknowledge that ....</Label>
+          </div> */}
           {/* ---------------FORM SUBMIT BUTTON--------------- */}
 
           <Button
             type='submit'
-            className='w-full p-8 text-md rounded-xl bg-gradient-to-r from-blue-600 via-indigo-400 to-purple-400 hover:from-blue-700 hover:via-indigo-400 hover:to-purple-500 text-white gap-2 '
+            className='w-full p-8 text-md rounded-xl bg-gradient-to-r from-indigo-500 from-10% via-purple-400 via-30% to-80% to-red-400 hover:from-indigo-600 hover:to-red-400 text-white gap-2 '
             disabled={pending}
           >
             {/* {loading ? "Loading..." : "Submit"} */}
