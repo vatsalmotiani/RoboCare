@@ -70,7 +70,7 @@ const SymptomForm = ({ setResponseData, setLoading, setErrorStatus }) => {
   const { pending } = useFormStatus();
 
   return (
-    <div className='w-1/2'>
+    <div className='w-full md:w-1/2'>
       {/* -----------------------------------------------------FORM FRONTEND----------------------------------------------------- */}
       <Form {...form}>
         <form
@@ -91,7 +91,7 @@ const SymptomForm = ({ setResponseData, setLoading, setErrorStatus }) => {
                     defaultValue={field.value}
                   >
                     <FormControl className='bg-neutral-700 border-neutral-600 px-4 py-8 rounded-2xl text-md text-neutral-400'>
-                      <SelectTrigger>
+                      <SelectTrigger className='text-white'>
                         <SelectValue placeholder='Select a symptom' />
                       </SelectTrigger>
                     </FormControl>
@@ -125,8 +125,8 @@ const SymptomForm = ({ setResponseData, setLoading, setErrorStatus }) => {
                     onValueChange={field.onChange}
                     defaultValue={field.value}
                   >
-                    <FormControl className='bg-neutral-700 border-neutral-600 px-4 py-8 rounded-2xl text-md text-neutral-400'>
-                      <SelectTrigger>
+                    <FormControl className='bg-neutral-700 border-neutral-600 px-4 py-8 rounded-2xl text-md text-neutral-400 '>
+                      <SelectTrigger className='text-white '>
                         <SelectValue placeholder='Select a symptom' />
                       </SelectTrigger>
                     </FormControl>
@@ -144,7 +144,7 @@ const SymptomForm = ({ setResponseData, setLoading, setErrorStatus }) => {
                       })}
                     </SelectContent>
                   </Select>
-                  <FormMessage />
+                  <FormMessage className='mb-0 pb-0' />
                 </FormItem>
               )}
             />
@@ -161,7 +161,7 @@ const SymptomForm = ({ setResponseData, setLoading, setErrorStatus }) => {
                     defaultValue={field.value}
                   >
                     <FormControl className='bg-neutral-700 border-neutral-600 px-4 py-8 rounded-2xl text-md text-neutral-400'>
-                      <SelectTrigger>
+                      <SelectTrigger className='text-white'>
                         <SelectValue placeholder='Select a symptom' />
                       </SelectTrigger>
                     </FormControl>
@@ -196,7 +196,7 @@ const SymptomForm = ({ setResponseData, setLoading, setErrorStatus }) => {
                     defaultValue={field.value}
                   >
                     <FormControl className='bg-neutral-700 border-neutral-600 px-4 py-8 rounded-2xl text-md text-neutral-400'>
-                      <SelectTrigger>
+                      <SelectTrigger className='text-white'>
                         <SelectValue placeholder='(Optional) Select a symptom' />
                       </SelectTrigger>
                     </FormControl>
@@ -231,7 +231,7 @@ const SymptomForm = ({ setResponseData, setLoading, setErrorStatus }) => {
                     defaultValue={field.value}
                   >
                     <FormControl className='bg-neutral-700 border-neutral-600 px-4 py-8 rounded-2xl text-md text-neutral-400'>
-                      <SelectTrigger>
+                      <SelectTrigger className='text-white'>
                         <SelectValue placeholder='(Optional) Select a symptom' />
                       </SelectTrigger>
                     </FormControl>
