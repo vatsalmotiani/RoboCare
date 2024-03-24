@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <div className='flex flex-col w-full'>
       <Card className='bg-neutral-800 border-none rounded-3xl'>
-        <CardHeader className='gap-y-2'>
+        <CardHeader className='gap-y-2 text-center mb-12 pt-8 bg-neutral-900 rounded-t-3xl'>
           <CardTitle className='text-white text-4xl'>Speed Scan</CardTitle>
           <CardDescription className='text-lg'>Select at least three symptoms to get started</CardDescription>
         </CardHeader>
@@ -35,11 +35,15 @@ export default function Home() {
               </p>
             )}
             {!loading && responseData && (
-              <div>
+              <div className='flex gap-x-4 '>
                 {Object.entries(responseData.percentages).map(([disease, percentage], i) => (
-                  <p key={i}>
-                    {disease}: {percentage.toFixed(2)}%
-                  </p>
+                  <Card
+                    className='mb-4 rounded-3xl p-6 text-white bg-neutral-700 border-none flex flex-col items-center '
+                    key={i}
+                  >
+                    <CardHeader className='text-xl'>{disease}</CardHeader>
+                    <CardContent className='text-6xl'>{percentage.toFixed(0)}%</CardContent>
+                  </Card>
                 ))}
               </div>
             )}
@@ -49,17 +53,6 @@ export default function Home() {
           <Info /> The information provided here is for informational purposes only and should not be construed as medical advice. Please consult a doctor for any medical concerns. For immediate medical assistance in India, call the national helpline number: 104.
         </CardFooter>
       </Card>
-
-      {/* <div className='gap-y-4 flex flex-col '>
-        <p className='text-4xl font-semibold text-center text-white'>Speed Scan</p>
-        <p className='text-neutral-500 text-center text-lg '>Select at least three symptoms to get started</p>
-      </div>
-      <Separator className='my-8 border-1 bg-neutral-600' />
-      <SymptomForm
-        setResponseData={setResponseData}
-        setLoading={setLoading}
-        setErrorStatus={setErrorStatus}
-      /> */}
     </div>
   );
 }

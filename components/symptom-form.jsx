@@ -75,7 +75,7 @@ const SymptomForm = ({ setResponseData, setLoading, setErrorStatus }) => {
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className='space-y-6'
+          className='space-y-8'
         >
           <div className='space-y-8'>
             {/* ---------------FORM SYMPTOM 1 --------------- */}
