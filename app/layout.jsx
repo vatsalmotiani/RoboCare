@@ -1,15 +1,16 @@
-import { Inter } from "next/font/google";
+import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import Sidebar from "@/components/Sidebar";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: {
-    absolute: "Health Gate Online",
-    template: "%s - Health Gate Online",
+    absolute: "Speed Scan",
+    template: "%s - Speed Scan",
   },
-  description: "Health Gate Online",
+  description: "Speed Scan",
   // icons: {
   //   icon: "/favicon.svg", // /public path
   // },
@@ -17,11 +18,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang='en'>
-      <body className={`${inter.className} bg-white text-neutral-500 flex flex-col min-h-screen relative`}>
-        <div className='justify-center flex'>
-          <Navbar />
-        </div>
-        <div className='m-4'>{children}</div>
+      <body className={`${inter.className} bg-neutral-900 w-full text-white flex min-h-screen relative`}>
+        <Sidebar />
+        <div className='bg-neutral-900 w-full border-s-2 border-neutral-700 p-8'>{children}</div>
       </body>
     </html>
   );
