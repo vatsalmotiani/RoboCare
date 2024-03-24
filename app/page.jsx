@@ -27,7 +27,7 @@ export default function Home() {
 
           <div className='w-1/2 bg-neutral-900 p-8 rounded-3xl'>
             <h1 className='text-2xl font-semibold text-white mb-8'>Result:</h1>
-            {loading && <Skeleton className='bg-neutral-600 w-full h-[40px] mt-4 rounded-full' />}
+            {loading && <Skeleton className='bg-neutral-600 w-full h-[200px] mt-4 rounded-3xl' />}
             {!loading && errorStatus && (
               <p className='text-red-400 text-lg flex items-center gap-x-2'>
                 <ShieldAlert />
@@ -35,7 +35,7 @@ export default function Home() {
               </p>
             )}
             {!loading && responseData && (
-              <div className='flex gap-x-4 '>
+              <div className='flex gap-x-4 flex-wrap'>
                 {Object.entries(responseData.percentages).map(([disease, percentage], i) => (
                   <Card
                     className='mb-4 rounded-3xl p-6 text-white bg-neutral-700 border-none flex flex-col items-center '
