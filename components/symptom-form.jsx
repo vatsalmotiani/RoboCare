@@ -5,15 +5,16 @@ import { useForm } from "react-hook-form";
 import { SymptomsSchema } from "@/schema";
 import { uniqueSymptoms } from "@/data/symptomsList";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "./ui/form";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Sparkle } from "lucide-react";
 
 const SymptomForm = () => {
   const [responseData, setResponseData] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [errorStatus, setErrorStatus] = useState(false);
 
   const form = useForm({
     resolver: zodResolver(SymptomsSchema),
@@ -53,10 +54,12 @@ const SymptomForm = () => {
         console.log("Result:", responseData);
       } else {
         console.error("Failed to fetch:", response.status);
+        setErrorStatus(true);
       }
     } catch (error) {
       //---------------CATCH BLOCK FOR ERRORS ---------------
       console.error("Error:", error);
+      setErrorStatus(true);
     } finally {
       setLoading(false);
     }
@@ -85,7 +88,7 @@ const SymptomForm = () => {
                     onValueChange={field.onChange}
                     defaultValue={field.value}
                   >
-                    <FormControl className='bg-neutral-800 border-neutral-700 px-4 py-8 rounded-2xl text-md text-neutral-400'>
+                    <FormControl className='bg-gradient-to-tl from-neutral-800 to-neutral-700 border-neutral-600 px-4 py-8 rounded-2xl text-md text-neutral-400'>
                       <SelectTrigger>
                         <SelectValue placeholder='Select a symptom' />
                       </SelectTrigger>
@@ -120,7 +123,7 @@ const SymptomForm = () => {
                     onValueChange={field.onChange}
                     defaultValue={field.value}
                   >
-                    <FormControl className='bg-neutral-800 border-neutral-700 px-4 py-8 rounded-2xl text-md text-neutral-400'>
+                    <FormControl className='bg-gradient-to-tl from-neutral-800 to-neutral-700 border-neutral-600 px-4 py-8 rounded-2xl text-md text-neutral-400'>
                       <SelectTrigger>
                         <SelectValue placeholder='Select a symptom' />
                       </SelectTrigger>
@@ -155,7 +158,7 @@ const SymptomForm = () => {
                     onValueChange={field.onChange}
                     defaultValue={field.value}
                   >
-                    <FormControl className='bg-neutral-800 border-neutral-700 px-4 py-8 rounded-2xl text-md text-neutral-400'>
+                    <FormControl className='bg-gradient-to-tl from-neutral-800 to-neutral-700 border-neutral-600 px-4 py-8 rounded-2xl text-md text-neutral-400'>
                       <SelectTrigger>
                         <SelectValue placeholder='Select a symptom' />
                       </SelectTrigger>
@@ -190,7 +193,7 @@ const SymptomForm = () => {
                     onValueChange={field.onChange}
                     defaultValue={field.value}
                   >
-                    <FormControl className='bg-neutral-800 border-neutral-700 px-4 py-8 rounded-2xl text-md text-neutral-400'>
+                    <FormControl className='bg-gradient-to-tl from-neutral-800 to-neutral-700 border-neutral-600 px-4 py-8 rounded-2xl text-md text-neutral-400'>
                       <SelectTrigger>
                         <SelectValue placeholder='(Optional) Select a symptom' />
                       </SelectTrigger>
@@ -225,7 +228,7 @@ const SymptomForm = () => {
                     onValueChange={field.onChange}
                     defaultValue={field.value}
                   >
-                    <FormControl className='bg-neutral-800 border-neutral-700 px-4 py-8 rounded-2xl text-md text-neutral-400'>
+                    <FormControl className='bg-gradient-to-tl from-neutral-800 to-neutral-700 border-neutral-600 px-4 py-8 rounded-2xl text-md text-neutral-400'>
                       <SelectTrigger>
                         <SelectValue placeholder='(Optional) Select a symptom' />
                       </SelectTrigger>
@@ -253,11 +256,11 @@ const SymptomForm = () => {
 
           <Button
             type='submit'
-            className='w-full p-8 text-md rounded-xl bg-blue-500 hover:bg-blue-700 text-white'
+            className='w-full p-8 text-md rounded-xl bg-gradient-to-r from-blue-600 via-indigo-400 to-purple-400 hover:from-blue-700 hover:via-indigo-400 hover:to-purple-500 text-white gap-2 '
             disabled={pending}
           >
             {/* {loading ? "Loading..." : "Submit"} */}
-            Get Results
+            Get Results <Sparkle className='fill-current' />
           </Button>
         </form>
       </Form>
