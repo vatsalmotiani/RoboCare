@@ -8,15 +8,14 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "./ui/button";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "./ui/form";
-import { Skeleton } from "@/components/ui/skeleton";
 import { Sparkle } from "lucide-react";
 import { Label } from "./ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 
-const SymptomForm = () => {
-  const [responseData, setResponseData] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [errorStatus, setErrorStatus] = useState(false);
+const SymptomForm = ({ setResponseData, setLoading, setErrorStatus }) => {
+  // const [responseData, setResponseData] = useState(null);
+  // const [loading, setLoading] = useState(false);
+  // const [errorStatus, setErrorStatus] = useState(false);
 
   const form = useForm({
     resolver: zodResolver(SymptomsSchema),
@@ -52,6 +51,7 @@ const SymptomForm = () => {
       });
       if (response.ok) {
         const responseData = await response.json();
+        setErrorStatus(false);
         setResponseData(responseData);
         console.log("Result:", responseData);
       } else {
@@ -70,7 +70,7 @@ const SymptomForm = () => {
   const { pending } = useFormStatus();
 
   return (
-    <div className='w-full'>
+    <div className='w-1/2'>
       {/* -----------------------------------------------------FORM FRONTEND----------------------------------------------------- */}
       <Form {...form}>
         <form
@@ -101,7 +101,7 @@ const SymptomForm = () => {
                           <SelectItem
                             key={symptom.id}
                             value={symptom.value}
-                            className='text-md text-neutral-400 focus:bg-neutral-700 focus:text-white'
+                            className='text-md text-neutral-400 focus:bg-neutral-700 focus:text-white ps-2'
                           >
                             {symptom.label}
                           </SelectItem>
@@ -136,7 +136,7 @@ const SymptomForm = () => {
                           <SelectItem
                             key={symptom.id}
                             value={symptom.value}
-                            className='text-md text-neutral-400 focus:bg-neutral-700 focus:text-white'
+                            className='text-md text-neutral-400 focus:bg-neutral-700 focus:text-white ps-2'
                           >
                             {symptom.label}
                           </SelectItem>
@@ -171,7 +171,7 @@ const SymptomForm = () => {
                           <SelectItem
                             key={symptom.id}
                             value={symptom.value}
-                            className='text-md text-neutral-400 focus:bg-neutral-700 focus:text-white'
+                            className='text-md text-neutral-400 focus:bg-neutral-700 focus:text-white ps-2'
                           >
                             {symptom.label}
                           </SelectItem>
@@ -206,7 +206,7 @@ const SymptomForm = () => {
                           <SelectItem
                             key={symptom.id}
                             value={symptom.value}
-                            className='text-md text-neutral-400 focus:bg-neutral-700 focus:text-white'
+                            className='text-md text-neutral-400 focus:bg-neutral-700 focus:text-white ps-2'
                           >
                             {symptom.label}
                           </SelectItem>
@@ -241,7 +241,7 @@ const SymptomForm = () => {
                           <SelectItem
                             key={symptom.id}
                             value={symptom.value}
-                            className='text-md text-neutral-400 focus:bg-neutral-700 focus:text-white'
+                            className='text-md text-neutral-400 focus:bg-neutral-700 focus:text-white ps-2'
                           >
                             {symptom.label}
                           </SelectItem>
@@ -273,7 +273,7 @@ const SymptomForm = () => {
           </Button>
         </form>
       </Form>
-      <div className='mt-8'>
+      {/* <div className='mt-8'>
         <h1 className='text-2xl font-semibold'>Result:</h1>
         {loading && <Skeleton className='w-full h-[40px] mt-4 rounded-full' />}
         {!loading && responseData && (
@@ -285,7 +285,7 @@ const SymptomForm = () => {
             ))}
           </div>
         )}
-      </div>
+      </div> */}
     </div>
   );
 };
