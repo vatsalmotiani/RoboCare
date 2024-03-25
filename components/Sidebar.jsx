@@ -24,13 +24,7 @@ export default function Sidebar() {
         <ClipboardPlus />
         Checkup
       </Link>
-      {/* <Link
-        href='/result'
-        className={`p-8 flex gap-x-2 ${pathname == "/result" ? "bg-neutral-800 " : "bg-none"}`}
-      >
-        <ClipboardPlus />
-        Result
-      </Link> */}
+
       <UserButton />
     </div>
   );

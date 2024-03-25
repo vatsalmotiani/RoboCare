@@ -15,7 +15,7 @@ export default function Checkup() {
     <div className='flex flex-col w-full'>
       <Card className='bg-neutral-800 border-none rounded-3xl'>
         <CardHeader className='gap-y-2 text-center mb-12 pt-8 bg-neutral-900 rounded-t-3xl'>
-          <CardTitle className='text-white text-4xl'>Speed Scan</CardTitle>
+          <CardTitle className='text-white text-4xl'>RoboCare</CardTitle>
           <CardDescription className='text-lg'>Select at least three symptoms to get started</CardDescription>
         </CardHeader>
         <CardContent className='flex gap-x-12 mb-4'>
@@ -49,10 +49,10 @@ export default function Checkup() {
             )}
           </div>
         </CardContent>
-        <CardFooter className='text-neutral-600 gap-x-2'>
-          <Info /> The information provided here is for informational purposes only and should not be construed as medical advice. Please consult a doctor for any medical concerns. For immediate medical assistance in India, call the national helpline number: 104.
-        </CardFooter>
       </Card>
+      <p className='mt-8 flex text-neutral-600 gap-x-2'>
+        <Info /> The information provided here is for informational purposes only and should not be construed as medical advice. Please consult a doctor for any medical concerns. For immediate medical assistance in India, call the national helpline number: 104.
+      </p>
     </div>
   );
 }
