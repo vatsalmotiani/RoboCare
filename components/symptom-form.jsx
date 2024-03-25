@@ -2,15 +2,15 @@
 import { useState } from "react";
 import { useFormStatus } from "react-dom";
 import { useForm } from "react-hook-form";
-import { SymptomsSchema } from "@/schema";
-import { uniqueSymptoms } from "@/data/symptomsList";
+import { SymptomsSchema } from "../schema/index";
+import { uniqueSymptoms } from "../data/symptomsList";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "./ui/button";
-import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "../components/ui/select";
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "./ui/form";
 import { Sparkle } from "lucide-react";
 import { Label } from "./ui/label";
-import { Checkbox } from "@/components/ui/checkbox";
+import { Checkbox } from "../components/ui/checkbox";
 
 const SymptomForm = ({ setResponseData, setLoading, setErrorStatus }) => {
   // const [responseData, setResponseData] = useState(null);

@@ -1,5 +1,5 @@
 import * as z from "zod";
-import { uniqueSymptomsList, symptomsList } from "@/data/symptomsList";
+import { uniqueSymptomsList, symptomsList } from "../data/symptomsList";
 
 export const SymptomsSchema = z.object({
   // email: z.string().email({

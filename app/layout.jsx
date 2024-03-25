@@ -1,7 +1,7 @@
-import { Inter, Poppins } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Sidebar from "@/components/Sidebar";
+import Navbar from "../components/Navbar";
+import Sidebar from "../components/Sidebar";
 import { ClerkProvider } from "@clerk/nextjs";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -18,14 +18,14 @@ export const metadata = {
 };
 export default function RootLayout({ children }) {
   return (
-    <ClerkProvider>
-      <html lang='en'>
-        <body className={`${inter.className} bg-black w-full text-white flex flex-col min-h-screen relative`}>
+    <html lang='en'>
+      <ClerkProvider>
+        <body className={`${inter.className} bg-neutral-900 text-white flex flex-col min-h-screen relative`}>
           {/* <Sidebar /> */}
           <Navbar />
-          <div className=' w-full border-s-2 border-neutral-700 h-screen p-8 flex justify-center items-center'>{children}</div>
+          <div className='w-full '>{children}</div>
         </body>
-      </html>
-    </ClerkProvider>
+      </ClerkProvider>
+    </html>
   );
 }

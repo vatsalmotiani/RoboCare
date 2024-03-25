@@ -1,9 +1,9 @@
 "use client";
 import { useState } from "react";
-import SymptomForm from "@/components/symptom-form";
-import { Separator } from "@/components/ui/separator";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Skeleton } from "@/components/ui/skeleton";
+import SymptomForm from "../../../components/symptom-form";
+import { Separator } from "../../../components/ui/separator";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "../../../components/ui/card";
+import { Skeleton } from "../../../components/ui/skeleton";
 import { Info, ShieldAlert } from "lucide-react";
 
 export default function Checkup() {
