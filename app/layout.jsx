@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import Sidebar from "../components/Sidebar";
 import { ClerkProvider } from "@clerk/nextjs";
 
@@ -18,14 +19,15 @@ export const metadata = {
 };
 export default function RootLayout({ children }) {
   return (
-    <html lang='en'>
-      <ClerkProvider>
-        <body className={`font-inter bg-gray-100 text-neutral-900 flex flex-col min-h-screen relative`}>
+    <ClerkProvider>
+      <html lang='en'>
+        <body className={`font-inter bg-gray-100 text-neutral-900   min-h-screen justify-between`}>
           {/* <Sidebar /> */}
+
           <Navbar />
           <div className='w-full p-16'>{children}</div>
         </body>
-      </ClerkProvider>
-    </html>
+      </html>
+    </ClerkProvider>
   );
 }

@@ -13,10 +13,6 @@ import { Label } from "./ui/label";
 import { Checkbox } from "../components/ui/checkbox";
 
 const SymptomForm = ({ setResponseData, setLoading, setErrorStatus }) => {
-  // const [responseData, setResponseData] = useState(null);
-  // const [loading, setLoading] = useState(false);
-  // const [errorStatus, setErrorStatus] = useState(false);
-
   const form = useForm({
     resolver: zodResolver(SymptomsSchema),
     defaultValues: {
@@ -270,7 +266,7 @@ const SymptomForm = ({ setResponseData, setLoading, setErrorStatus }) => {
           > */}
           <Button
             type='submit'
-            className='w-full p-8 text-md rounded-xl bg-blue-600 hover:bg-blue-800 text-white gap-2 '
+            className='w-full p-8 text-lg rounded-xl bg-blue-600 hover:bg-blue-800 text-white gap-2 '
             disabled={pending}
           >
             {/* {loading ? "Loading..." : "Submit"} */}

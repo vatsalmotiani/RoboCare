@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
-  content: ["./pages/**/*.{js,jsx}", "./components/**/*.{js,jsx}", "./app/**/*.{js,jsx}", "./src/**/*.{js,jsx}"],
+  content: ["./pages/**/*.{js,jsx}", "./components/**/*.{js,jsx}", "./app/**/*.{js,jsx}", "./@/**/*.{js,jsx}"],
   prefix: "",
   theme: {
     container: {
@@ -62,6 +62,10 @@ module.exports = {
           to: { height: "0" },
         },
       },
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+      },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
         caveat: ["Caveat", "cursive"],
@@ -71,10 +75,6 @@ module.exports = {
         oswald: ["Oswald", "sans-serif"],
         imbue: ["Imbue", "serif"],
         alumni: ["Alumni Sans", "sans-serif"],
-      },
-      animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
       },
     },
   },
