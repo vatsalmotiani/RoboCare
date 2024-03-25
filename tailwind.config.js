@@ -70,6 +70,7 @@ module.exports = {
         bebas: ["Bebas Neue", "sans-serif"],
         oswald: ["Oswald", "sans-serif"],
         imbue: ["Imbue", "serif"],
+        alumni: ["Alumni Sans", "sans-serif"],
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",

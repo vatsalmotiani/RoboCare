@@ -20,10 +20,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang='en'>
       <ClerkProvider>
-        <body className={`${inter.className} bg-neutral-900 text-white flex flex-col min-h-screen relative`}>
+        <body className={`font-inter bg-gray-100 text-neutral-900 flex flex-col min-h-screen relative`}>
           {/* <Sidebar /> */}
           <Navbar />
-          <div className='w-full '>{children}</div>
+          <div className='w-full p-16'>{children}</div>
         </body>
       </ClerkProvider>
     </html>

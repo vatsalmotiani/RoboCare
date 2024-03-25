@@ -70,14 +70,14 @@ const SymptomForm = ({ setResponseData, setLoading, setErrorStatus }) => {
   const { pending } = useFormStatus();
 
   return (
-    <div className='w-full md:w-1/2'>
+    <div className='w-full'>
       {/* -----------------------------------------------------FORM FRONTEND----------------------------------------------------- */}
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
           className='space-y-8'
         >
-          <div className='space-y-8'>
+          <div className=' grid grid-cols-1 lg:grid-cols-2 gap-8'>
             {/* ---------------FORM SYMPTOM 1 --------------- */}
 
             <FormField
@@ -90,18 +90,18 @@ const SymptomForm = ({ setResponseData, setLoading, setErrorStatus }) => {
                     onValueChange={field.onChange}
                     defaultValue={field.value}
                   >
-                    <FormControl className='bg-neutral-700 border-neutral-600 px-4 py-8 rounded-2xl text-md text-neutral-400'>
-                      <SelectTrigger className='text-white'>
+                    <FormControl className=' px-4 py-8 rounded-2xl text-md text-neutral-400'>
+                      <SelectTrigger className='text-neutral-900 '>
                         <SelectValue placeholder='Select a symptom' />
                       </SelectTrigger>
                     </FormControl>
-                    <SelectContent className='bg-neutral-900 border-neutral-700 p-4 rounded-2xl text-md text-neutral-400'>
+                    <SelectContent className=' p-4 rounded-2xl text-md text-neutral-400'>
                       {uniqueSymptoms.map((symptom, i) => {
                         return (
                           <SelectItem
                             key={symptom.id}
                             value={symptom.value}
-                            className='text-md text-neutral-400 focus:bg-neutral-700 focus:text-white ps-2'
+                            className='text-md  ps-2'
                           >
                             {symptom.label}
                           </SelectItem>
@@ -125,18 +125,18 @@ const SymptomForm = ({ setResponseData, setLoading, setErrorStatus }) => {
                     onValueChange={field.onChange}
                     defaultValue={field.value}
                   >
-                    <FormControl className='bg-neutral-700 border-neutral-600 px-4 py-8 rounded-2xl text-md text-neutral-400 '>
-                      <SelectTrigger className='text-white '>
+                    <FormControl className=' px-4 py-8 rounded-2xl text-md text-neutral-400 '>
+                      <SelectTrigger className='text-neutral-900 '>
                         <SelectValue placeholder='Select a symptom' />
                       </SelectTrigger>
                     </FormControl>
-                    <SelectContent className='bg-neutral-900 border-neutral-700 p-4 rounded-2xl text-md text-neutral-400'>
+                    <SelectContent className=' p-4 rounded-2xl text-md text-neutral-400'>
                       {uniqueSymptoms.map((symptom, i) => {
                         return (
                           <SelectItem
                             key={symptom.id}
                             value={symptom.value}
-                            className='text-md text-neutral-400 focus:bg-neutral-700 focus:text-white ps-2'
+                            className='text-md  ps-2'
                           >
                             {symptom.label}
                           </SelectItem>
@@ -160,18 +160,18 @@ const SymptomForm = ({ setResponseData, setLoading, setErrorStatus }) => {
                     onValueChange={field.onChange}
                     defaultValue={field.value}
                   >
-                    <FormControl className='bg-neutral-700 border-neutral-600 px-4 py-8 rounded-2xl text-md text-neutral-400'>
-                      <SelectTrigger className='text-white'>
+                    <FormControl className=' px-4 py-8 rounded-2xl text-md text-neutral-400'>
+                      <SelectTrigger className='text-neutral-900 '>
                         <SelectValue placeholder='Select a symptom' />
                       </SelectTrigger>
                     </FormControl>
-                    <SelectContent className='bg-neutral-900 border-neutral-700 p-4 rounded-2xl text-md text-neutral-400'>
+                    <SelectContent className=' p-4 rounded-2xl text-md text-neutral-400'>
                       {uniqueSymptoms.map((symptom, i) => {
                         return (
                           <SelectItem
                             key={symptom.id}
                             value={symptom.value}
-                            className='text-md text-neutral-400 focus:bg-neutral-700 focus:text-white ps-2'
+                            className='text-md  ps-2'
                           >
                             {symptom.label}
                           </SelectItem>
@@ -195,18 +195,18 @@ const SymptomForm = ({ setResponseData, setLoading, setErrorStatus }) => {
                     onValueChange={field.onChange}
                     defaultValue={field.value}
                   >
-                    <FormControl className='bg-neutral-700 border-neutral-600 px-4 py-8 rounded-2xl text-md text-neutral-400'>
-                      <SelectTrigger className='text-white'>
+                    <FormControl className=' px-4 py-8 rounded-2xl text-md text-neutral-400'>
+                      <SelectTrigger className='text-neutral-900 '>
                         <SelectValue placeholder='(Optional) Select a symptom' />
                       </SelectTrigger>
                     </FormControl>
-                    <SelectContent className='bg-neutral-900 border-neutral-700 p-4 rounded-2xl text-md text-neutral-400'>
+                    <SelectContent className=' p-4 rounded-2xl text-md text-neutral-400'>
                       {uniqueSymptoms.map((symptom, i) => {
                         return (
                           <SelectItem
                             key={symptom.id}
                             value={symptom.value}
-                            className='text-md text-neutral-400 focus:bg-neutral-700 focus:text-white ps-2'
+                            className='text-md  ps-2'
                           >
                             {symptom.label}
                           </SelectItem>
@@ -230,18 +230,18 @@ const SymptomForm = ({ setResponseData, setLoading, setErrorStatus }) => {
                     onValueChange={field.onChange}
                     defaultValue={field.value}
                   >
-                    <FormControl className='bg-neutral-700 border-neutral-600 px-4 py-8 rounded-2xl text-md text-neutral-400'>
-                      <SelectTrigger className='text-white'>
+                    <FormControl className=' px-4 py-8 rounded-2xl text-md text-neutral-400'>
+                      <SelectTrigger className='text-neutral-900 '>
                         <SelectValue placeholder='(Optional) Select a symptom' />
                       </SelectTrigger>
                     </FormControl>
-                    <SelectContent className='bg-neutral-900 border-neutral-700 p-4 rounded-2xl text-md text-neutral-400'>
+                    <SelectContent className=' p-4 rounded-2xl text-md text-neutral-400'>
                       {uniqueSymptoms.map((symptom, i) => {
                         return (
                           <SelectItem
                             key={symptom.id}
                             value={symptom.value}
-                            className='text-md text-neutral-400 focus:bg-neutral-700 focus:text-white ps-2'
+                            className='text-md  ps-2'
                           >
                             {symptom.label}
                           </SelectItem>
@@ -254,7 +254,7 @@ const SymptomForm = ({ setResponseData, setLoading, setErrorStatus }) => {
               )}
             />
           </div>
-          {/* <div className='flex gap-x-2 items-center text-white '>
+          {/* <div className='flex gap-x-2 items-center text-neutral-900 '>
             <Checkbox
               id='terms'
               className='border-white border-3 ring-offset-white'
@@ -262,10 +262,15 @@ const SymptomForm = ({ setResponseData, setLoading, setErrorStatus }) => {
             <Label htmlFor='terms'>I acknowledge that ....</Label>
           </div> */}
           {/* ---------------FORM SUBMIT BUTTON--------------- */}
-
+          {/* 
           <Button
             type='submit'
-            className='w-full p-8 text-md rounded-xl bg-gradient-to-r from-indigo-500 from-10% via-purple-400 via-30% to-80% to-red-400 hover:from-indigo-600 hover:to-red-400 text-white gap-2 '
+            className='w-full p-8 text-md rounded-xl bg-gradient-to-r from-indigo-500 from-10% via-purple-400 via-30% to-80% to-red-400 hover:from-indigo-600 hover:to-red-400 text-neutral-900 gap-2 '
+            disabled={pending}
+          > */}
+          <Button
+            type='submit'
+            className='w-full p-8 text-md rounded-xl bg-blue-600 hover:bg-blue-800 text-white gap-2 '
             disabled={pending}
           >
             {/* {loading ? "Loading..." : "Submit"} */}

@@ -14,25 +14,27 @@ export default function Sidebar() {
     <div className=' flex justify-between items-center'>
       <Link
         href='/'
-        className={`p-8 flex space-x-4 items-center bg-clip-text text-md text-white font-semibold`}
+        className={`p-8 flex space-x-4 items-center`}
       >
-        <Image
+        {/* <Image
           src='/logo.svg'
           alt='logo'
           height='12'
           width='12'
-        />
-        <p>RoboCare</p>
+        /> */}
+        <p className='text-3xl  text-neutral-900 font-oswald '>
+          Robo<span className='text-blue-600'>Care</span>
+        </p>
       </Link>
-      <div className='me-12 space-x-8'>
+      <div className='me-12 font-medium space-x-4 '>
         <Link
           href='/checkup'
-          className={`p-8  ${pathname == "/checkup" ? "font-bold text-white" : "text-neutral-400 "}`}
+          className={`p-8  text-md ${pathname == "/checkup" ? "font-bold text-neutral-900" : "text-neutral-600 "}`}
         >
           Checkup
         </Link>
         <Link href='/sign-in'>
-          <Button className='text-md bg-white text-neutral-900 hover:bg-neutral-300 gap-2 '>Sign In</Button>
+          <Button className='text-md bg-blue-600 text-white hover:bg-blue-800 gap-2 '>Sign In</Button>
         </Link>
         {/* TODO: Change sign in button to avatar based on whether signed in */}
 

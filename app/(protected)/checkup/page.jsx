@@ -13,9 +13,38 @@ export default function Checkup() {
 
   return (
     <div className='flex flex-col w-full'>
-      <Card className='bg-neutral-800 border-none rounded-3xl'>
+      <p>Select at least three symptoms to get started</p>
+      <SymptomForm
+        setResponseData={setResponseData}
+        setLoading={setLoading}
+        setErrorStatus={setErrorStatus}
+      />
+      <div className='w-full md:w-1/2  rounded-3xl'>
+        <h1 className='text-2xl font-semibold text-neutral-900 mb-8'>Result:</h1>
+        {loading && <Skeleton className='bg-neutral-600 w-full h-[200px] mt-4 rounded-3xl' />}
+        {!loading && errorStatus && (
+          <p className='text-red-400 text-lg flex items-center gap-x-2'>
+            <ShieldAlert />
+            Error Fetching Results. Please try again later!
+          </p>
+        )}
+        {!loading && responseData && (
+          <div className='flex gap-x-4 flex-wrap'>
+            {Object.entries(responseData.percentages).map(([disease, percentage], i) => (
+              <Card
+                className='mb-4 rounded-3xl p-6 text-white bg-blue-600 border-none flex flex-col items-center '
+                key={i}
+              >
+                <CardHeader className='text-xl'>{disease}</CardHeader>
+                <CardContent className='text-6xl'>{percentage.toFixed(0)}%</CardContent>
+              </Card>
+            ))}
+          </div>
+        )}
+      </div>
+      {/* <Card className='bg-neutral-800 border-none rounded-3xl'>
         <CardHeader className='gap-y-2 text-center mb-12 pt-8 bg-neutral-900 rounded-t-3xl'>
-          <CardTitle className='text-white text-4xl'>RoboCare</CardTitle>
+          <CardTitle className='text-neutral-900 text-4xl'>RoboCare</CardTitle>
           <CardDescription className='text-lg'>Select at least three symptoms to get started</CardDescription>
         </CardHeader>
         <CardContent className='flex gap-x-12 mb-4'>
@@ -26,7 +55,7 @@ export default function Checkup() {
           />
 
           <div className='w-full md:w-1/2 bg-neutral-900 p-8 rounded-3xl'>
-            <h1 className='text-2xl font-semibold text-white mb-8'>Result:</h1>
+            <h1 className='text-2xl font-semibold text-neutral-900 mb-8'>Result:</h1>
             {loading && <Skeleton className='bg-neutral-600 w-full h-[200px] mt-4 rounded-3xl' />}
             {!loading && errorStatus && (
               <p className='text-red-400 text-lg flex items-center gap-x-2'>
@@ -38,7 +67,7 @@ export default function Checkup() {
               <div className='flex gap-x-4 flex-wrap'>
                 {Object.entries(responseData.percentages).map(([disease, percentage], i) => (
                   <Card
-                    className='mb-4 rounded-3xl p-6 text-white bg-neutral-700 border-none flex flex-col items-center '
+                    className='mb-4 rounded-3xl p-6 text-neutral-900 bg-neutral-700 border-none flex flex-col items-center '
                     key={i}
                   >
                     <CardHeader className='text-xl'>{disease}</CardHeader>
@@ -49,7 +78,7 @@ export default function Checkup() {
             )}
           </div>
         </CardContent>
-      </Card>
+      </Card> */}
       <p className='mt-8 flex text-neutral-600 gap-x-2'>
         <Info /> The information provided here is for informational purposes only and should not be construed as medical advice. Please consult a doctor for any medical concerns. For immediate medical assistance in India, call the national helpline number: 104.
       </p>

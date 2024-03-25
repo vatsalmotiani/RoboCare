@@ -2,12 +2,12 @@
 <path d="M294.438 0L0 0.102654L137.562 607.039L132.633 174.999L294.438 0Z" fill="url(#paint0_radial_6_53)"/>
 <path d="M52.2853 800.458L346.723 800.355L209.161 193.419L197.146 638.728L52.2853 800.458Z" fill="url(#paint1_radial_6_53)"/>
 <defs>
-<radialGradient id="paint0_radial_6_53" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(-392 270.5) rotate(5.16408) scale(1111.01 970.009)">
+<radialGradient id="paint0_radial_6_53" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="tranneutral(-392 270.5) rotate(5.16408) scale(1111.01 970.009)">
 <stop stop-color="#1D26FF"/>
 <stop offset="0.68" stop-color="#B70C52" stop-opacity="0.99"/>
 <stop offset="1" stop-color="#FF0000"/>
 </radialGradient>
-<radialGradient id="paint1_radial_6_53" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(-392 270.5) rotate(5.16408) scale(1111.01 970.009)">
+<radialGradient id="paint1_radial_6_53" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="tranneutral(-392 270.5) rotate(5.16408) scale(1111.01 970.009)">
 <stop stop-color="#1D26FF"/>
 <stop offset="0.68" stop-color="#B70C52" stop-opacity="0.99"/>
 <stop offset="1" stop-color="#FF0000"/>
