@@ -105,7 +105,7 @@ const SymptomForm = ({ setResponseData, setLoading, setErrorStatus }) => {
                       })}
                     </SelectContent>
                   </Select>
-                  <FormMessage />
+                  <FormMessage className='ps-4' />
                 </FormItem>
               )}
             />
@@ -140,7 +140,7 @@ const SymptomForm = ({ setResponseData, setLoading, setErrorStatus }) => {
                       })}
                     </SelectContent>
                   </Select>
-                  <FormMessage className='mb-0 pb-0' />
+                  <FormMessage className='ps-4' />
                 </FormItem>
               )}
             />
@@ -175,7 +175,7 @@ const SymptomForm = ({ setResponseData, setLoading, setErrorStatus }) => {
                       })}
                     </SelectContent>
                   </Select>
-                  <FormMessage />
+                  <FormMessage className='ps-4' />
                 </FormItem>
               )}
             />
