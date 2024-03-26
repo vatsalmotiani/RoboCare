@@ -64,81 +64,60 @@ export default function Result({ responseData, loading, errorStatus }) {
   return (
     <>
       <div className='pt-8'>
-        {responseData && (
-          <div className='mb-8 space-y-6'>
-            <h1 className='text-5xl font-oswald text-neutral-900 '>Potential Conditions Identified:</h1>
-            <p className='text-lg text-neutral-500'>Based on the symptoms you entered, we have analyzed your health concerns and identified potential problems. Here are the results:</p>
-          </div>
-        )}
-
-        {loading && <Skeleton className='bg-neutral-200 w-full h-[200px] mt-4 rounded-3xl' />}
         {!loading && errorStatus && (
-          <p className='text-red-400 text-lg flex items-center gap-x-2'>
+          <p className='text-red-400 text-lg flex items-center gap-x-2 mb-4'>
             <ShieldAlert />
             Error Fetching Results. Please try again later!
           </p>
         )}
-        {!loading && responseData && (
-          <div className='flex flex-col space-y-8'>
-            {/* <div className='flex gap-x-4 flex-wrap'> */}
-            <div className=''>
-              {sortedData.map(({ disease, percentage }, i) => (
-                <Accordion
-                  key={i}
-                  type='single'
-                  collapsible
-                >
-                  <AccordionItem value={`item-${i}`}>
-                    <AccordionTrigger className=''>
-                      <div className='font-bold flex space-x-4 items-center'>
-                        <p className='font-medium  bg-blue-600 text-white py-2 px-4 rounded-full'>{i + 1}</p>
-                        <p className='text-2xl'>{disease}</p>
-                        <p className='text-blue-600'>{percentage.toFixed(0)}%</p>
-                      </div>
-                    </AccordionTrigger>
-                    <AccordionContent>
-                      <div className='text-lg flex flex-col space-y-6 '>
-                        <p className=''>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum odit veritatis aut enim earum, voluptates quia reiciendis exercitationem culpa incidunt.</p>
-                        <div className='space-y-1'>
-                          <p className='font-semibold text-blue-600'>Cause</p>
-                          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum odit veritatis aut enim earum, voluptates quia reiciendis exercitationem culpa incidunt.</p>
-                        </div>
-                        <div className='space-y-1'>
-                          <p className='font-semibold text-blue-600'>Treatment</p>
-                          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum odit veritatis aut enim earum, voluptates quia reiciendis exercitationem culpa incidunt.</p>
-                          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum odit veritatis aut enim earum, voluptates quia reiciendis exercitationem culpa incidunt.</p>
-                          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum odit veritatis aut enim earum, voluptates quia reiciendis exercitationem culpa incidunt.</p>
-                        </div>
-                      </div>
-                    </AccordionContent>
-                  </AccordionItem>
-                </Accordion>
+        {loading && !errorStatus && <Skeleton className='bg-neutral-200 w-full h-[200px] mt-4 rounded-3xl' />}
 
-                // --------------------------------------------
-
-                // <div key={i}>
-                //   <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum odit veritatis aut enim earum, voluptates quia reiciendis exercitationem culpa incidunt.</p>
-                //   <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum odit veritatis aut enim earum, voluptates quia reiciendis exercitationem culpa incidunt.</p>
-                //   <p className='text-lg font-medium'>Cure</p>
-                //   <ol>
-                //     <li>Lorem ipsum dolor sit amet consectetur.</li>
-                //     <li>Lorem ipsum dolor sit amet consectetur.</li>
-                //     <li>Lorem ipsum dolor sit amet consectetur.</li>
-                //   </ol>
-                // </div>
-                // --------------------------------------------
-                // <Card
-                //   className='mb-4 rounded-3xl p-6 text-white bg-blue-600 border-none flex flex-col items-center '
-                //   key={i}
-                // >
-                //   <CardHeader className='text-xl'>{disease}</CardHeader>
-                //   <CardContent className='text-6xl'>{percentage.toFixed(0)}%</CardContent>
-                // </Card>
-              ))}
+        {!loading && !errorStatus && responseData && (
+          <>
+            <div className='mb-8 space-y-6'>
+              <h1 className='text-5xl font-oswald text-neutral-900 '>Potential Conditions Identified:</h1>
+              <p className='text-lg text-neutral-500'>Based on the symptoms you entered, we have analyzed your health concerns and identified potential problems. Here are the results:</p>
             </div>
-            <Feedback />
-            <Footer />
-          </div>
+            <div className='flex flex-col space-y-8'>
+              {/* <div className='flex gap-x-4 flex-wrap'> */}
+              <div className=''>
+                {sortedData.map(({ disease, percentage }, i) => (
+                  <Accordion
+                    key={i}
+                    type='single'
+                    collapsible
+                  >
+                    <AccordionItem value={`item-${i}`}>
+                      <AccordionTrigger className=''>
+                        <div className='font-bold flex space-x-4 items-center'>
+                          <p className='font-medium  bg-blue-600 text-white py-2 px-4 rounded-full'>{i + 1}</p>
+                          <p className='text-2xl'>{disease}</p>
+                          <p className='text-blue-600'>{percentage.toFixed(0)}%</p>
+                        </div>
+                      </AccordionTrigger>
+                      <AccordionContent>
+                        <div className='text-lg flex flex-col space-y-6 '>
+                          <p className=''>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum odit veritatis aut enim earum, voluptates quia reiciendis exercitationem culpa incidunt.</p>
+                          <div className='space-y-1'>
+                            <p className='font-semibold text-blue-600'>Cause</p>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum odit veritatis aut enim earum, voluptates quia reiciendis exercitationem culpa incidunt.</p>
+                          </div>
+                          <div className='space-y-1'>
+                            <p className='font-semibold text-blue-600'>Treatment</p>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum odit veritatis aut enim earum, voluptates quia reiciendis exercitationem culpa incidunt.</p>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum odit veritatis aut enim earum, voluptates quia reiciendis exercitationem culpa incidunt.</p>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum odit veritatis aut enim earum, voluptates quia reiciendis exercitationem culpa incidunt.</p>
+                          </div>
+                        </div>
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
+                ))}
+              </div>
+              <Feedback />
+              <Footer />
+            </div>
+          </>
         )}
       </div>
     </>
