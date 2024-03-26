@@ -8,9 +8,14 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "./ui/button";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "../components/ui/select";
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "./ui/form";
-import { Sparkle } from "lucide-react";
-import { Label } from "./ui/label";
-import { Checkbox } from "../components/ui/checkbox";
+import { SearchCheck, Sparkle, ChevronsUpDown } from "lucide-react";
+
+// import { cn } from "../lib/utils";
+// import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem } from "./ui/command";
+// import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
+
+// import { Label } from "./ui/label";
+// import { Checkbox } from "../components/ui/checkbox";
 
 const SymptomForm = ({ setResponseData, setLoading, setErrorStatus }) => {
   const form = useForm({

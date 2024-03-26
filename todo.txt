@@ -1,5 +1,6 @@
 Send Feedback using API
 Email Result
+Generate PDF of Report
 Expand Result UI
 Homepage UI
-Try out autofill input field instead of dropdown
+Try out autofill input field instead of dropdown (Combobox)

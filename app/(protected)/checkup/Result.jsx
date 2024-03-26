@@ -6,6 +6,7 @@ import { Button } from "../../../components/ui/button";
 import { useState } from "react";
 import Footer from "../../../components/Footer";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../../../components/ui/accordian";
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "../../../components/ui/hover-card";
 
 export default function Result({ responseData, loading, errorStatus }) {
   const [feedbackReturned, setFeedbackReturned] = useState(false);
@@ -89,11 +90,16 @@ export default function Result({ responseData, loading, errorStatus }) {
                   >
                     <AccordionItem value={`item-${i}`}>
                       <AccordionTrigger className=''>
-                        <div className='font-bold flex space-x-4 items-center'>
-                          <p className='font-medium  bg-blue-600 text-white py-2 px-4 rounded-full'>{i + 1}</p>
-                          <p className='text-2xl'>{disease}</p>
-                          <p className='text-blue-600'>{percentage.toFixed(0)}%</p>
-                        </div>
+                        <HoverCard>
+                          <HoverCardTrigger>
+                            <div className='font-bold flex space-x-4 items-center'>
+                              <p className='font-medium  bg-blue-600 text-white py-2 px-4 rounded-full'>{i + 1}</p>
+                              <p className='text-2xl'>{disease}</p>
+                              <p className='text-blue-600'>{percentage.toFixed(0)}%</p>
+                            </div>
+                          </HoverCardTrigger>
+                          <HoverCardContent className='text-neutral-400 mx-2'>Expand To Read More</HoverCardContent>
+                        </HoverCard>
                       </AccordionTrigger>
                       <AccordionContent>
                         <div className='text-lg flex flex-col space-y-6 '>

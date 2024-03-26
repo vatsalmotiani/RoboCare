@@ -1,4 +1,3 @@
-import { auth } from "@clerk/nextjs";
 import Image from "next/image";
 import { SignIn } from "@clerk/nextjs";
 import { Separator } from "../components/ui/separator";
