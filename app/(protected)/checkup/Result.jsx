@@ -7,6 +7,7 @@ import { useState } from "react";
 import Footer from "../../../components/Footer";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../../../components/ui/accordian";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "../../../components/ui/hover-card";
+import { findDisease, disease_info } from "../../../data/diseaseInfo";
 
 export default function Result({ responseData, loading, errorStatus }) {
   const [feedbackReturned, setFeedbackReturned] = useState(false);
@@ -52,6 +53,9 @@ export default function Result({ responseData, loading, errorStatus }) {
     console.log("Yes", responseData);
   };
 
+  const { percentages } = responseData && responseData.percentages ? responseData : {};
+  const combinedData = [];
+
   // Check if responseData is not null and has the percentages property
   const sortedData =
     responseData && responseData.percentages
@@ -61,6 +65,28 @@ export default function Result({ responseData, loading, errorStatus }) {
           // Sort the array of objects by percentage in descending order
           .sort((a, b) => b.percentage - a.percentage)
       : []; // Default to an empty array if responseData is null or doesn't have the percentages property
+
+  // Check if sortedData is not empty
+  if (Array.isArray(sortedData) && sortedData.length > 0) {
+    for (const { disease, percentage } of sortedData) {
+      // Iterate over sortedData
+      // Find the disease information from disease_info
+      const diseaseDetails = findDisease(disease);
+
+      // If disease information is found, combine it with percentage
+      if (diseaseDetails) {
+        combinedData.push({
+          name: disease,
+          percentage,
+          ...diseaseDetails, // Spread other information from disease_info
+        });
+      }
+    }
+  }
+
+  // console.log("responseData", responseData);
+  // console.log("Sorted", sortedData);
+  // console.log("Combined", combinedData);
 
   return (
     <>
@@ -82,9 +108,9 @@ export default function Result({ responseData, loading, errorStatus }) {
             <div className='flex flex-col space-y-8'>
               {/* <div className='flex gap-x-4 flex-wrap'> */}
               <div className=''>
-                {sortedData.map(({ disease, percentage }, i) => (
+                {combinedData.map(({ disease, percentage, description, name, cause, cure, id }, i) => (
                   <Accordion
-                    key={i}
+                    key={id}
                     type='single'
                     collapsible
                   >
@@ -93,9 +119,10 @@ export default function Result({ responseData, loading, errorStatus }) {
                         <HoverCard>
                           <HoverCardTrigger>
                             <div className='font-bold flex space-x-4 items-center'>
-                              <p className='font-medium  bg-blue-600 text-white py-2 px-4 rounded-full'>{i + 1}</p>
-                              <p className='text-2xl'>{disease}</p>
+                              <p className='font-medium  bg-white border-neutral-300 border-2 text-neutral-500 py-2 px-4 rounded-full'>{i + 1}</p>
+                              <p className='text-2xl'>{name}</p>
                               <p className='text-blue-600'>{percentage.toFixed(0)}%</p>
+                              {percentage.toFixed(0) >= 75 && percentage.toFixed(0) <= 100 && <p className='font-medium text-neutral-400'>(Strong chance)</p>}
                             </div>
                           </HoverCardTrigger>
                           <HoverCardContent className='text-neutral-400 mx-2'>Expand To Read More</HoverCardContent>
@@ -103,16 +130,16 @@ export default function Result({ responseData, loading, errorStatus }) {
                       </AccordionTrigger>
                       <AccordionContent>
                         <div className='text-lg flex flex-col space-y-6 '>
-                          <p className=''>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum odit veritatis aut enim earum, voluptates quia reiciendis exercitationem culpa incidunt.</p>
+                          <p className=''>{description}</p>
                           <div className='space-y-1'>
                             <p className='font-semibold text-blue-600'>Cause</p>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum odit veritatis aut enim earum, voluptates quia reiciendis exercitationem culpa incidunt.</p>
+                            <p>{cause}</p>
                           </div>
                           <div className='space-y-1'>
                             <p className='font-semibold text-blue-600'>Treatment</p>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum odit veritatis aut enim earum, voluptates quia reiciendis exercitationem culpa incidunt.</p>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum odit veritatis aut enim earum, voluptates quia reiciendis exercitationem culpa incidunt.</p>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum odit veritatis aut enim earum, voluptates quia reiciendis exercitationem culpa incidunt.</p>
+                            {cure.map((point, i) => {
+                              return <li key={i}>{point}</li>;
+                            })}
                           </div>
                         </div>
                       </AccordionContent>

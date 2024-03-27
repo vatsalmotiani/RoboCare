@@ -1,6 +1,6 @@
 Send Feedback using API
 Email Result
 Generate PDF of Report
-Expand Result UI
+Visualize Result
 Homepage UI
 Try out autofill input field instead of dropdown (Combobox)
