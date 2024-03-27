@@ -1,7 +1,7 @@
 "use client";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "../../../components/ui/card";
 import { Skeleton } from "../../../components/ui/skeleton";
-import { Bot, Check, ShieldAlert, ThumbsDown, ThumbsUp, X } from "lucide-react";
+import { Bot, Check, Download, Mail, ShieldAlert, ThumbsDown, ThumbsUp, X } from "lucide-react";
 import { Button } from "../../../components/ui/button";
 import { useState } from "react";
 import Footer from "../../../components/Footer";
@@ -11,6 +11,24 @@ import { findDisease, disease_info } from "../../../data/diseaseInfo";
 
 export default function Result({ responseData, loading, errorStatus }) {
   const [feedbackReturned, setFeedbackReturned] = useState(false);
+
+  const ErrorBlock = () => {
+    return (
+      <p className='text-red-500 font-medium text-lg flex items-center gap-x-2 mb-4'>
+        <ShieldAlert />
+        Error Fetching Results. Please try again later!
+      </p>
+    );
+  };
+
+  const ResultHeader = () => {
+    return (
+      <div className='mb-8 space-y-6'>
+        <h1 className='text-5xl font-oswald text-neutral-900 '>Potential Conditions Identified:</h1>
+        <p className='text-lg text-neutral-500'>Based on the symptoms you entered, we have analyzed your health concerns and identified potential problems. Here are the results:</p>
+      </div>
+    );
+  };
 
   const Feedback = () => {
     return (
@@ -53,7 +71,6 @@ export default function Result({ responseData, loading, errorStatus }) {
     console.log("Yes", responseData);
   };
 
-  const { percentages } = responseData && responseData.percentages ? responseData : {};
   const combinedData = [];
 
   // Check if responseData is not null and has the percentages property
@@ -62,9 +79,9 @@ export default function Result({ responseData, loading, errorStatus }) {
       ? // Convert responseData.percentages to an array of objects
         Object.entries(responseData.percentages)
           .map(([disease, percentage]) => ({ disease, percentage }))
-          // Sort the array of objects by percentage in descending order
+          // Sorting
           .sort((a, b) => b.percentage - a.percentage)
-      : []; // Default to an empty array if responseData is null or doesn't have the percentages property
+      : []; // Else Null
 
   // Check if sortedData is not empty
   if (Array.isArray(sortedData) && sortedData.length > 0) {
@@ -91,22 +108,16 @@ export default function Result({ responseData, loading, errorStatus }) {
   return (
     <>
       <div className='pt-8'>
-        {!loading && errorStatus && (
-          <p className='text-red-400 text-lg flex items-center gap-x-2 mb-4'>
-            <ShieldAlert />
-            Error Fetching Results. Please try again later!
-          </p>
-        )}
+        {!loading && errorStatus && <ErrorBlock />}
         {loading && !errorStatus && <Skeleton className='bg-neutral-200 w-full h-[200px] mt-4 rounded-3xl' />}
 
         {!loading && !errorStatus && responseData && (
           <>
-            <div className='mb-8 space-y-6'>
-              <h1 className='text-5xl font-oswald text-neutral-900 '>Potential Conditions Identified:</h1>
-              <p className='text-lg text-neutral-500'>Based on the symptoms you entered, we have analyzed your health concerns and identified potential problems. Here are the results:</p>
-            </div>
+            <ResultHeader />
             <div className='flex flex-col space-y-8'>
               {/* <div className='flex gap-x-4 flex-wrap'> */}
+
+              {/* ---------------------------------------- Disease Listing ---------------------------------------- */}
               <div className=''>
                 {combinedData.map(({ disease, percentage, description, name, cause, cure, id }, i) => (
                   <Accordion
@@ -115,6 +126,7 @@ export default function Result({ responseData, loading, errorStatus }) {
                     collapsible
                   >
                     <AccordionItem value={`item-${i}`}>
+                      {/* ---------------------------------------- Disease Header ---------------------------------------- */}
                       <AccordionTrigger className=''>
                         <HoverCard>
                           <HoverCardTrigger>
@@ -128,6 +140,7 @@ export default function Result({ responseData, loading, errorStatus }) {
                           <HoverCardContent className='text-neutral-400 mx-2'>Expand To Read More</HoverCardContent>
                         </HoverCard>
                       </AccordionTrigger>
+                      {/* ---------------------------------------- Expanded Content ---------------------------------------- */}
                       <AccordionContent>
                         <div className='text-lg flex flex-col space-y-6 '>
                           <p className=''>{description}</p>
@@ -146,6 +159,16 @@ export default function Result({ responseData, loading, errorStatus }) {
                     </AccordionItem>
                   </Accordion>
                 ))}
+              </div>
+              <div className='flex space-x-2'>
+                <Button className='flex space-x-4 text-lg p-6 rounded-lg '>
+                  <Download />
+                  <p>Download Report</p>
+                </Button>
+                <Button className='flex space-x-4 text-lg p-6 rounded-lg '>
+                  <Mail />
+                  <p>Email Report</p>
+                </Button>
               </div>
               <Feedback />
               <Footer />

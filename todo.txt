@@ -1,6 +1,6 @@
-Send Feedback using API
+Send Feedback using API (soham)
 Email Result
-Generate PDF of Report
+Generate PDF of Report (manu)
 Visualize Result
-Homepage UI
+Homepage UI (manu)
 Try out autofill input field instead of dropdown (Combobox)
