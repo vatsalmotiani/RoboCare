@@ -1,7 +1,7 @@
 const disease_info = [
   {
     id: 0,
-    name: "Fungal infection",
+    name: "Fungal Infection",
     description: "It is any disease caused by a fungus. A fungus that invades the tissue can cause a disease that's confined to the skin, spreads into tissue, bones and organs or affects the whole body.",
     cause: "Fungal infections are caused by hundreds of fungi that live in the environment, or weakend immune system.",
     cure: ["Antifungal medications", "Vitamin C tablets"],
@@ -22,7 +22,7 @@ const disease_info = [
   },
   {
     id: 3,
-    name: "Chronic cholestasis",
+    name: "Chronic Cholestasis",
     description: "Chronic cholestasis is a condition in which the liver and bile ducts are unable to excrete or transport bile to the duodenum.",
     cause: "It's caused by chronic progressive cholestatic diseases such as primary biliary cholangitis (PBC) and primary sclerosing cholangitis.",
     cure: ["Cholestyramine", "Ursodeoxycholic acid"],
@@ -36,7 +36,7 @@ const disease_info = [
   },
   {
     id: 5,
-    name: "Peptic ulcer disease",
+    name: "Peptic Ulcer Disease",
     description: "A sore that develops on the lining of the oesophagus, stomach or small intestine. Ulcers occur when stomach acid damages the lining of the digestive tract.",
     cause: "Common causes include the bacteria H. Pylori and anti-inflammatory pain relievers including aspirin.",
     cure: ["Proton pump inhibitors (PPIs)", "Antibiotics"],
@@ -85,7 +85,7 @@ const disease_info = [
   },
   {
     id: 12,
-    name: "Cervical spondylosis",
+    name: "Cervical Spondylosis",
     description: "It is a condition involving changes to the bones, disks, and joints of the neck, usually as people age. Cervical spondylosis most often causes neck pain and stiffness.",
     cause: "Cervical spondylosis is generally a problem that comes with age, from wear and tear on the neck.",
     cure: ["Wearing a cervical collar to limit movement and provide support", "Heat and cold therapy or exercise"],
@@ -206,7 +206,7 @@ const disease_info = [
 
   {
     id: 28,
-    name: "Dimorphic hemmorhoids(piles)",
+    name: "Dimorphic Hemmorhoids (piles)",
     description: "Piles, also known as hemorrhoids, are swollen and inflamed veins in the rectum and anus, causing discomfort, itching, and sometimes bleeding during bowel movements. They can result from increased pressure in the lower rectum due to factors like straining during bowel movements, chronic constipation, or pregnancy.",
     cause: "Straining during bowel movements, chronic constipation, diarrhea, sitting for prolonged periods, obesity, pregnancy, and a low-fiber diet. ",
     cure: ["Drink lots of water", "Paracetamol if piles hurt", "Keep your bottom clean and dry", "Exercise regularly"],
@@ -214,7 +214,7 @@ const disease_info = [
 
   {
     id: 29,
-    name: "Heartattack",
+    name: "Heart Attack",
     description: "A heart attack happens when something blocks the blood flow to your heart so it can’t get the oxygen it needs. It’s a medical emergency. ",
     cause: "When your blood supply is blocked, you have a heart attack. Fat, calcium, proteins, and inflammatory cells build up in your arteries to form plaques. These plaque deposits are hard on the outside and soft and mushy on the inside.",
     cure: [
@@ -224,7 +224,7 @@ const disease_info = [
 
   {
     id: 30,
-    name: "Varicoseveins",
+    name: "Varicose Veins",
     description: "Varicose veins are enlarged, twisted veins, usually occurring in the legs, caused by weakened valves and increased pressure in the veins. ",
     cause: "Varicose veins commonly develop due to weakened or damaged valves in the veins, which disrupt the normal flow of blood. Contributing factors include genetics, aging, prolonged standing or sitting, obesity, pregnancy, and hormonal changes such as during puberty or menopause.",
     cure: ["Lifestyle changes including regular exercise", "Compression stockings to improve bloodflow", "Endovenous laser treatment (EVLT)"],
@@ -288,7 +288,7 @@ const disease_info = [
 
   {
     id: 38,
-    name: "Urinary tract infection",
+    name: "Urinary Tract Infection",
     description: "A urinary tract infection (UTI) is a bacterial infection affecting the urinary system, commonly characterized by symptoms such as frequent urination, burning sensation during urination, cloudy or foul-smelling urine, and pelvic pain.",
     cause: "Improper wiping after bowel movements, sexual activity, urinary catheterization, or conditions that obstruct the flow of urine, such as kidney stones.",
     cure: ["Avoid diuretics and irritants", "Hydrate", "Keep genital area clean", "Antibiotics"],
