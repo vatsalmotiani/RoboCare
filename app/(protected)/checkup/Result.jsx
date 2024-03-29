@@ -65,10 +65,25 @@ export default function Result({ responseData, loading, errorStatus }) {
     );
   };
 
-  const handleFeedback = () => {
+  const handleFeedback = async () => {
     setFeedbackReturned(true);
-    // Call API to send feedback
-    console.log("Yes", responseData);
+
+    // console.log("Yes", responseData);
+
+    const results = { responseData: responseData };
+    try {
+      const response = await fetch("http://127.0.0.1:3002/feedback", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(results),
+      });
+      console.log("Feedback Result:", response);
+    } catch (error) {
+      //---------------CATCH BLOCK FOR ERRORS ---------------
+      console.error("Feedback Error:", error);
+    }
   };
 
   const combinedData = [];
