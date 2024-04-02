@@ -31,7 +31,7 @@ export default function Sidebar() {
           height='12'
           width='12'
         /> */}
-        <p className='text-3xl  text-neutral-900 font-oswald '>
+        <p className='text-3xl  text-neutral-900 font-semibold'>
           Robo<span className='text-blue-600'>Care</span>
         </p>
       </Link>
