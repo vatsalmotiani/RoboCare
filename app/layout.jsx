@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Sidebar from "../components/Sidebar";
 import { ClerkProvider } from "@clerk/nextjs";
+import { Toaster } from "../components/ui/toaster";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,6 +27,7 @@ export default function RootLayout({ children }) {
 
           <Navbar />
           <div className='w-full p-16'>{children}</div>
+          <Toaster />
         </body>
       </html>
     </ClerkProvider>
