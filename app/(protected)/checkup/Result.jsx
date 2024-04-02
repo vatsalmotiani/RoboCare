@@ -1,10 +1,9 @@
 "use client";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "../../../components/ui/card";
+
 import { Skeleton } from "../../../components/ui/skeleton";
-import { Bot, Check, Download, Mail, ShieldAlert, ThumbsDown, ThumbsUp, X } from "lucide-react";
+import { Bot, ShieldAlert, ThumbsDown, ThumbsUp, X } from "lucide-react";
 import { Button } from "../../../components/ui/button";
 import { useState } from "react";
-import Footer from "../../../components/Footer";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../../../components/ui/accordian";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "../../../components/ui/hover-card";
 import { findDisease, disease_info } from "../../../data/diseaseInfo";
@@ -12,7 +11,6 @@ import { useToast } from "../../../components/ui/use-toast";
 
 export default function Result({ responseData, loading, errorStatus }) {
   const { toast } = useToast();
-
   const [feedbackReturned, setFeedbackReturned] = useState(false);
 
   const ErrorBlock = () => {
@@ -75,9 +73,7 @@ export default function Result({ responseData, loading, errorStatus }) {
       const response = await fetch("http://127.0.0.1:3002/feedback", {
         method: "POST",
         headers: {
-          "Access-Control-Allow-Origin": "*",
-          "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-          "Access-Control-Allow-Headers": "Content-Type, Authorization",
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(results),
       });
@@ -85,30 +81,6 @@ export default function Result({ responseData, loading, errorStatus }) {
     } catch (error) {
       //---------------CATCH BLOCK FOR ERRORS ---------------
       console.error("Feedback Error:", error, response);
-    }
-  };
-
-  const handleEmail = async () => {
-    try {
-      const response = await fetch("/api/email", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      toast({
-        title: "Report Sent! ✅ ",
-        description: "Check your inbox for details",
-        duration: 4000,
-      });
-    } catch (error) {
-      //---------------CATCH BLOCK FOR ERRORS ---------------
-      console.error("Email Error:", error);
-      toast({
-        description: "Error",
-        duration: 1000,
-        variant: "destructive",
-      });
     }
   };
 
@@ -201,21 +173,7 @@ export default function Result({ responseData, loading, errorStatus }) {
                   </Accordion>
                 ))}
               </div>
-              <div className='flex space-x-2'>
-                <Button className='flex space-x-4 text-lg p-6 rounded-lg '>
-                  <Download />
-                  <p>Download Report</p>
-                </Button>
-                <Button
-                  className='flex space-x-4 text-lg p-6 rounded-lg '
-                  onClick={handleEmail}
-                >
-                  <Mail />
-                  <p>Email Report</p>
-                </Button>
-              </div>
               <Feedback />
-              <Footer />
             </div>
           </>
         )}

@@ -4,22 +4,33 @@ import * as React from "react";
 // const baseUrl = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "";
 const baseUrl = "http://localhost:3000";
 
-// export const WelcomeEmail = ({ userFirstname }) => (
-export const WelcomeEmail = ({}) => (
+const dummyEmail = [
+  { disease: "Cervical Spondylosis", percentage: "11.11111111111111" },
+  { disease: "Cervical", percentage: "21.11111111111111" },
+];
+export const WelcomeEmail = ({ firstName, percentages }) => (
   <Html>
     <Head />
-    <Preview>Dummy Email.</Preview>
+    <Preview>Click here to see results</Preview>
     <Body style={main}>
       <Container style={container}>
-        <Text style={paragraph}>Hi Test,</Text>
-        {/* <Text style={paragraph}>Hi {userFirstname},</Text> */}
-        <Text style={paragraph}>Welcome to RoboCare</Text>
+        <Text style={paragraph}>Hi {firstName},</Text>
+        <Text style={paragraph}>Here are your RoboCare Results:</Text>
+        {percentages.map(({ disease, percentage }, i) => (
+          <Text
+            key={i}
+            style={paragraph}
+          >
+            {disease} - {percentage}
+          </Text>
+        ))}
+
         <Section style={btnContainer}>
           <Button
             style={button}
             href='https://vatsalmotiani.com'
           >
-            Get started
+            Check up
           </Button>
         </Section>
         <Text style={paragraph}>
