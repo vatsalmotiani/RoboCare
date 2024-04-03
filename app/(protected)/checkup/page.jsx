@@ -12,8 +12,8 @@ export default function Checkup() {
   const [errorStatus, setErrorStatus] = useState(false);
 
   return (
-    <div className='flex flex-col w-full space-y-8 '>
-      <p className='text-7xl font-oswald'>Symptom Evaluation</p>
+    <div className='flex flex-col w-full space-y-8 p-8 md:p-24'>
+      <p className='text-5xl md:text-7xl font-oswald'>Symptom Evaluation</p>
       <p className='text-lg text-neutral-500'>Receive Personalized Analysis. Select at least 3 symptoms to get started</p>
       <Separator />
       <SymptomForm

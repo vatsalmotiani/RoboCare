@@ -38,7 +38,7 @@ export default function Sidebar() {
       <div className='flex me-12 items-center font-medium space-x-16'>
         <Link
           href='/'
-          className={`text-md ${pathname == "/" ? "font-semibold text-blue-600" : "text-neutral-600 "}`}
+          className={`md:block hidden text-md ${pathname == "/" ? "font-semibold text-blue-600" : "text-neutral-600 "}`}
         >
           Home
         </Link>
@@ -48,12 +48,18 @@ export default function Sidebar() {
         >
           Checkup
         </Link>
+        <Link
+          href='/faq'
+          className={`md:block hidden text-md ${pathname == "/faq" ? "font-semibold text-blue-600" : "text-neutral-600 "}`}
+        >
+          FAQs
+        </Link>
 
         {!isLoaded && <Skeleton className={"h-10 w-10 rounded-full bg-neutral-400"} />}
 
         {!isSignedIn && (
           <Link href='/sign-in'>
-            <Button className='text-md bg-blue-600 text-white hover:bg-blue-800 gap-2 '>Sign In</Button>
+            <Button className='md:block hidden text-md bg-blue-600 text-white hover:bg-blue-800 gap-2 '>Sign In</Button>
           </Link>
         )}
         {isSignedIn && (
