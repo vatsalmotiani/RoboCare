@@ -1,17 +1,20 @@
 "use client";
 
 import { Skeleton } from "../../../components/ui/skeleton";
-import { Bot, ShieldAlert, ThumbsDown, ThumbsUp, X } from "lucide-react";
+import { Bot, Download, Mail, ShieldAlert, ThumbsDown, ThumbsUp, X } from "lucide-react";
 import { Button } from "../../../components/ui/button";
 import { useState } from "react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../../../components/ui/accordian";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "../../../components/ui/hover-card";
 import { findDisease, disease_info } from "../../../data/diseaseInfo";
 import { useToast } from "../../../components/ui/use-toast";
+import { useUser } from "@clerk/nextjs";
 
 export default function Result({ responseData, loading, errorStatus }) {
   const { toast } = useToast();
   const [feedbackReturned, setFeedbackReturned] = useState(false);
+
+  const { isSignedIn, user, isLoaded } = useUser();
 
   const ErrorBlock = () => {
     return (
@@ -81,6 +84,35 @@ export default function Result({ responseData, loading, errorStatus }) {
     } catch (error) {
       //---------------CATCH BLOCK FOR ERRORS ---------------
       console.error("Feedback Error:", error, response);
+    }
+  };
+
+  const handleEmail = async () => {
+    try {
+      const requestBody = { diseaseData: combinedData, firstName: user.firstName, email: user.primaryEmailAddress.emailAddress };
+      const response = await fetch("/api/email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(requestBody),
+      });
+      if (response.status === 200) {
+        toast({
+          title: "Report Sent! ✅ ",
+          description: "Check your inbox for details",
+          duration: 4000,
+        });
+        console.log("Email Response:", response);
+      }
+    } catch (error) {
+      //---------------CATCH BLOCK FOR ERRORS ---------------
+      console.error("Email Error:", error);
+      toast({
+        description: "Error",
+        duration: 1000,
+        variant: "destructive",
+      });
     }
   };
 
@@ -172,6 +204,19 @@ export default function Result({ responseData, loading, errorStatus }) {
                     </AccordionItem>
                   </Accordion>
                 ))}
+              </div>
+              <div className='flex space-x-2'>
+                <Button className='flex space-x-4 text-lg p-6 rounded-lg '>
+                  <Download />
+                  <p>Download Report</p>
+                </Button>
+                <Button
+                  className='flex space-x-4 text-lg p-6 rounded-lg '
+                  onClick={handleEmail}
+                >
+                  <Mail />
+                  <p>Email Report</p>
+                </Button>
               </div>
               <Feedback />
             </div>

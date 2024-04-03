@@ -7,10 +7,33 @@ import { Info } from "lucide-react";
 const baseUrl = "http://localhost:3000";
 
 const dummyEmail = [
-  { disease: "Cervical Spondylosis", percentage: "11.11111111111111" },
-  { disease: "Cervical", percentage: "21.11111111111111" },
+  {
+    name: "Diabetes",
+    percentage: 33.33333333333333,
+    id: 7,
+    description: "Diabetes is a chronic disease that occurs when the body doesn't produce enough insulin or can't use it properly, causing high levels of blood sugar (glucose).",
+    cause: "There are various causes but some commonly noted ones are Obesity, Physicial Inactivity, Advanced age, and Genetics.",
+    cure: ["hmm", "ok"],
+  },
+  {
+    name: "Fungal Infection",
+    percentage: 33.33333333333333,
+    id: 0,
+    description: "It is any disease caused by a fungus. A fungus that invades the tissue can cause a disease that's confined to the skin, spreads into tissue, bones and organs or affects the whole body.",
+    cause: "Fungal infections are caused by hundreds of fungi that live in the environment, or weakend immune system.",
+    cure: ["hmm", "ok"],
+  },
+  {
+    name: "Hyperthyroidism",
+    percentage: 33.33333333333333,
+    id: 32,
+    description: "Hyperthyroidism is a thyroid disorder characterized by an overactive thyroid gland, resulting in excessive production of thyroid hormones.",
+    cause: "Graves disease. This immune system disorder is the most common cause of hyperthyroidism (70% of cases). Normally, the antibodies in your blood go after bacteria, but if you have Graves’ disease, the antibodies turn on your thyroid instead.",
+    cure: ["hmm", "ok"],
+  },
 ];
-export const WelcomeEmail = ({ firstName, percentages }) => (
+
+export const WelcomeEmail = ({ firstName, diseaseData, email }) => (
   <Tailwind
     config={{
       theme: {
@@ -48,7 +71,7 @@ export const WelcomeEmail = ({ firstName, percentages }) => (
           rel='stylesheet'
         /> */}
       </Head>
-      <Preview>Click here to see results</Preview>
+      <Preview>Your results are here!</Preview>
       <Body style={main}>
         <Container
           style={container}
@@ -57,24 +80,58 @@ export const WelcomeEmail = ({ firstName, percentages }) => (
           <p className='text-3xl  text-neutral-900 font-semibold'>
             Robo<span className='text-blue-600'>Care</span>
           </p>
-          <Text style={paragraph}>Hi {firstName},</Text>
-          <p className='leading-normal'>Thank you for participating in the RoboCare Health Assessment. Your commitment to understanding your health status is commendable, and we are pleased to provide you with your test results. </p>
-          <p className='leading-normal'>Here is a breakdown of your test results:</p>
-          <div className='flex flex-col'>
-            {percentages.map(({ disease, percentage }, i) => (
-              <div
+          <p className='leading-normal text-md'>Hi {firstName},</p>
+          <p className='leading-normal text-md'>Thank you for participating in the RoboCare Health Assessment. Your commitment to understanding your health status is commendable, and we are pleased to provide you with your test results. </p>
+          <p className='leading-normal text-md'>Here is a breakdown of your test results:</p>
+          <Container style={container2}>
+            {diseaseData.map(({ name, percentage, description, cause, cure }, i) => (
+              <Container
+                style={container2}
+                className=''
                 key={i}
-                className='font-bold flex items-center '
               >
-                <p className='font-medium me-4'>{i + 1}.</p>
-                <p className='font-bold me-2'>{disease}</p>
-                <p className='text-blue-600 me-2'>{Math.floor(percentage)}%</p>
-                {percentage >= 75 && percentage <= 100 && <p className='font-medium text-neutral-400'>(Strong chance)</p>}
-              </div>
-            ))}
-          </div>
+                <div
+                  style={{ marginBottom: "0px" }}
+                  className='font-bold text-xl flex items-center'
+                >
+                  <p
+                    style={{ marginRight: "16px" }}
+                    className='font-medium me-4'
+                  >
+                    {i + 1}.
+                  </p>
+                  <p
+                    style={{ marginRight: "16px" }}
+                    className='font-bold me-2'
+                  >
+                    {name}
+                  </p>
+                  <p
+                    style={{ marginRight: "16px" }}
+                    className='text-blue-600 me-2'
+                  >
+                    {Math.floor(percentage)}%
+                  </p>
+                </div>
 
-          <p style={paragraph}>If you wish to take another test, click the button below.</p>
+                <Container>
+                  <p className=''>{description}</p>
+                  <Container className=''>
+                    <p className='font-semibold text-blue-600'>Cause</p>
+                    <p>{cause}</p>
+                  </Container>
+                  <Container className=''>
+                    <p className='font-semibold text-blue-600'>Treatment</p>
+                    {cure.map((point, i) => {
+                      return <li key={i}>{point}</li>;
+                    })}
+                  </Container>
+                </Container>
+              </Container>
+            ))}
+          </Container>
+
+          <p className='leading-normal'>If you wish to take another test, click the button below.</p>
 
           <Button
             className='bg-blue-600 rounded-lg w-full px-3 py-4 font-medium leading-4 text-center text-white'
@@ -83,14 +140,14 @@ export const WelcomeEmail = ({ firstName, percentages }) => (
             Take Another Test
           </Button>
 
-          <Text style={paragraph}>
+          <Text>
             Best,
             <br />
             RoboCare Health Assessment Team
           </Text>
           <Hr style={hr} />
           {/* <Text style={footer}>RoboCare - Est. 2023</Text> */}
-          <p className='flex text-sm leading-normal text-neutral-400 gap-x-2 '>The information provided here is for informational purposes only and should not be construed as medical advice. Please consult a doctor for any medical concerns. For immediate medical assistance in India, call the national helpline number: 104.</p>
+          <p className='flex leading-normal text-neutral-400 gap-x-2 '>The information provided here is for informational purposes only and should not be construed as medical advice. Please consult a doctor for any medical concerns. For immediate medical assistance in India, call the national helpline number: 104.</p>
         </Container>
       </Body>
     </Html>
@@ -110,7 +167,16 @@ const main = {
 
 const container = {
   margin: "0 auto",
-  padding: "20px 0 48px",
+  // padding: "20px 0 48px",
+};
+
+const container2 = {
+  margin: "0 auto",
+  padding: "0px 0px 20px 0",
+};
+const container3 = {
+  margin: "0 auto",
+  padding: "0px",
 };
 
 const logo = {
