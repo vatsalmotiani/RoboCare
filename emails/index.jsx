@@ -75,14 +75,16 @@ export const WelcomeEmail = ({ firstName, diseaseData, email }) => (
       <Body style={main}>
         <Container
           style={container}
-          className='p-6'
+          className='px-6 pt-6'
         >
           <p className='text-3xl  text-neutral-900 font-semibold'>
             Robo<span className='text-blue-600'>Care</span>
           </p>
           <p className='leading-normal text-md'>Hi {firstName},</p>
-          <p className='leading-normal text-md'>Thank you for participating in the RoboCare Health Assessment. Your commitment to understanding your health status is commendable, and we are pleased to provide you with your test results. </p>
-          <p className='leading-normal text-md'>Here is a breakdown of your test results:</p>
+          <p className='leading-normal text-md'>Thank you for completing the RoboCare Health Assessment. Your dedication to understanding your health is admirable, and we are delighted to provide you with an overview of your assessment. </p>
+          <p className='leading-normal text-md'>Below is a breakdown of your test outcomes:</p>
+          <Hr style={hr} />
+
           <Container style={container2}>
             {diseaseData.map(({ name, percentage, description, cause, cure }, i) => (
               <Container
@@ -123,10 +125,11 @@ export const WelcomeEmail = ({ firstName, diseaseData, email }) => (
                   <Container className=''>
                     <p className='font-semibold text-blue-600'>Treatment</p>
                     {cure.map((point, i) => {
-                      return <li key={i}>{point}</li>;
+                      return <p key={i}>- {point}</p>;
                     })}
                   </Container>
                 </Container>
+                <Hr style={hr} />
               </Container>
             ))}
           </Container>
@@ -135,7 +138,7 @@ export const WelcomeEmail = ({ firstName, diseaseData, email }) => (
 
           <Button
             className='bg-blue-600 rounded-lg w-full px-3 py-4 font-medium leading-4 text-center text-white'
-            href='https://vatsalmotiani.com'
+            href='https://localhost:3000/checkup'
           >
             Take Another Test
           </Button>
@@ -172,7 +175,7 @@ const container = {
 
 const container2 = {
   margin: "0 auto",
-  padding: "0px 0px 20px 0",
+  padding: "0px 0px 0px 0",
 };
 const container3 = {
   margin: "0 auto",
