@@ -12,15 +12,17 @@ export default function Page() {
           alt='art'
         />
       </div> */}
-      <div className='flex flex-col items-center space-y-8'>
+      <div className='flex flex-col items-center space-y-8 mb-12 '>
         <Image
           src='/flower.svg'
           height={60}
           width={60}
           alt='flower'
         />
-        <p className='text-neutral-900 text-7xl leading-normal text-wrap font-oswald '>Welcome Back</p>
-        <SignIn />
+        <p className='text-neutral-900 md:leading-normal leading-normal text-4xl md:text-7xl text-wrap font-oswald'>Welcome Back</p>
+        <div className='m-12'>
+          <SignIn />
+        </div>
       </div>
     </div>
   );

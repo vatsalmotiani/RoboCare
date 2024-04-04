@@ -19,7 +19,7 @@ export default function Page() {
           width={60}
           alt='flower'
         />
-        <p className='text-neutral-900 text-7xl leading-normal text-wrap font-oswald '>
+        <p className='text-neutral-900 md:leading-normal leading-normal text-4xl md:text-7xl text-wrap font-oswald'>
           Introducing Robo<span className='text-blue-600'>Care</span>
         </p>
         <SignUp />

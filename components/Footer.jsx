@@ -12,7 +12,7 @@ export default function Footer() {
   const { signOut } = useClerk();
   const router = useRouter();
   return (
-    <div className='bg-neutral-900 p-8'>
+    <div className='bg-neutral-900 p-8 mt-8'>
       <p className='mb-8 flex text-neutral-600 gap-x-2 bottom-0'>
         <Info /> The information provided here is for informational purposes only and should not be construed as medical advice. Please consult a doctor for any medical concerns. For immediate medical assistance in India, call the national helpline number: 104.
       </p>

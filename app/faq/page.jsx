@@ -60,13 +60,13 @@ export default function Faq() {
                 value={`item-${i}`}
                 className='py-2'
               >
-                <AccordionTrigger className='font-semibold text-xl hover:text-neutral-600'>
+                <AccordionTrigger className='text-start font-semibold text-xl hover:text-neutral-600'>
                   <p>
                     {/* <span className='text-blue-600'>Q{i + 1} </span> */}
                     {question}
                   </p>
                 </AccordionTrigger>
-                <AccordionContent className='text-neutral-700 text-lg'>
+                <AccordionContent className=' text-neutral-700 text-lg'>
                   <p>
                     {/* <span className='text-blue-600'>Ans: </span> */}
                     {ans}

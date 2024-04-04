@@ -9,6 +9,8 @@ import { HoverCard, HoverCardContent, HoverCardTrigger } from "../../../componen
 import { findDisease, disease_info } from "../../../data/diseaseInfo";
 import { useToast } from "../../../components/ui/use-toast";
 import { useUser } from "@clerk/nextjs";
+import { PDFDownloadLink } from "@react-pdf/renderer";
+import PDFFile from "../../../pdf/PDFFile";
 
 export default function Result({ responseData, loading, errorStatus }) {
   const { toast } = useToast();
@@ -208,7 +210,18 @@ export default function Result({ responseData, loading, errorStatus }) {
               <div className='flex space-x-2'>
                 <Button className='flex space-x-4 text-lg p-6 rounded-lg '>
                   <Download />
-                  <p>Download Report</p>
+                  <PDFDownloadLink
+                    document={
+                      <PDFFile
+                        data={combinedData}
+                        name={user.firstName}
+                      />
+                    }
+                    fileName={`${user.firstName}_Report_RoboCare`}
+                  >
+                    {({ loading }) => (loading ? "Loading Document..." : "Download")}
+                    {/* <p>Download Report</p> */}
+                  </PDFDownloadLink>
                 </Button>
                 <Button
                   className='flex space-x-4 text-lg p-6 rounded-lg '
