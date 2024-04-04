@@ -4,7 +4,6 @@ import { useState } from "react";
 import SymptomForm from "../../../components/symptom-form";
 import { Separator } from "../../../components/ui/separator";
 import Result from "./Result";
-import Footer from "../../../components/Footer";
 
 export default function Checkup() {
   const [responseData, setResponseData] = useState(null);
@@ -26,8 +25,6 @@ export default function Checkup() {
         loading={loading}
         errorStatus={errorStatus}
       />
-
-      <Footer />
     </div>
   );
 }

@@ -71,19 +71,19 @@ export default function Result({ responseData, loading, errorStatus }) {
 
   const handleFeedback = async () => {
     setFeedbackReturned(true);
-    const results = { responseData: responseData };
+    // const results = { responseData: responseData };
     try {
       const response = await fetch("http://127.0.0.1:3002/feedback", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(results),
+        body: JSON.stringify(responseData),
       });
       console.log("Feedback Result:", response);
     } catch (error) {
       //---------------CATCH BLOCK FOR ERRORS ---------------
-      console.error("Feedback Error:", error, response);
+      console.error("Feedback Error:", error);
     }
   };
 

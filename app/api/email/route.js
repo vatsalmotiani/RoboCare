@@ -7,7 +7,6 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export async function POST(request) {
   try {
     const { diseaseData, firstName, email } = await request.json();
-    // const recepients = ["robocare24@gmail.com", email];
     const data = await resend.emails.send({
       from: "RoboCare <onboarding@resend.dev>",
       to: ["robocare24@gmail.com", email],
