@@ -20,15 +20,17 @@ export const metadata = {
 };
 export default function RootLayout({ children }) {
   return (
-    <ClerkProvider>
-      <html lang='en'>
-        <body className={`font-inter bg-gray-100 text-neutral-900 min-h-screen flex flex-col`}>
-          <Navbar />
-          <div className='w-full '>{children}</div>
+    <html lang='en'>
+      <body className={`font-inter bg-gray-100 text-neutral-900 min-h-screen flex flex-col justify-between`}>
+        <ClerkProvider>
+          <div className='flex flex-col'>
+            <Navbar />
+            <div className='w-full'>{children}</div>
+            <Toaster />
+          </div>
           <Footer />
-          <Toaster />
-        </body>
-      </html>
-    </ClerkProvider>
+        </ClerkProvider>
+      </body>
+    </html>
   );
 }
