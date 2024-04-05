@@ -12,6 +12,7 @@ import { useUser } from "@clerk/nextjs";
 import Link from "next/link";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import PDFFile from "../../../pdf/PDFFile";
+import { MotionWrap2 } from "../../../components/MotionWrap";
 
 export default function Result({ responseData, loading, errorStatus }) {
   const { toast } = useToast();
@@ -173,44 +174,46 @@ export default function Result({ responseData, loading, errorStatus }) {
                     type='single'
                     collapsible
                   >
-                    <AccordionItem value={`item-${i}`}>
-                      {/* ---------------------------------------- Disease Header ---------------------------------------- */}
-                      <AccordionTrigger className=''>
-                        <HoverCard>
-                          <HoverCardTrigger>
-                            <div className='font-bold flex space-x-4 items-center'>
-                              <p className='font-medium  bg-white border-neutral-300 border-2 text-neutral-500 py-2 px-4 rounded-full'>{i + 1}</p>
-                              <p className='text-2xl'>{name}</p>
-                              <p className='text-blue-600'>{percentage.toFixed(0)}%</p>
-                              {percentage.toFixed(0) >= 75 && percentage.toFixed(0) <= 100 && <p className='font-medium text-neutral-400'>(Strong chance)</p>}
+                    <MotionWrap2>
+                      <AccordionItem value={`item-${i}`}>
+                        {/* ---------------------------------------- Disease Header ---------------------------------------- */}
+                        <AccordionTrigger className=''>
+                          <HoverCard>
+                            <HoverCardTrigger>
+                              <div className='font-bold flex space-x-4 items-center'>
+                                <p className='font-medium  bg-white border-neutral-300 border-2 text-neutral-500 py-2 px-4 rounded-full'>{i + 1}</p>
+                                <p className='text-2xl'>{name}</p>
+                                <p className='text-blue-600'>{percentage.toFixed(0)}%</p>
+                                {percentage.toFixed(0) >= 75 && percentage.toFixed(0) <= 100 && <p className='font-medium text-neutral-400'>(Strong chance)</p>}
+                              </div>
+                            </HoverCardTrigger>
+                            <HoverCardContent className='text-neutral-400 mx-2'>Expand To Read More</HoverCardContent>
+                          </HoverCard>
+                        </AccordionTrigger>
+                        {/* ---------------------------------------- Expanded Content ---------------------------------------- */}
+                        <AccordionContent>
+                          <div className='text-lg flex flex-col space-y-6 '>
+                            <p className=''>{description}</p>
+                            <div className='space-y-1'>
+                              <p className='font-semibold text-blue-600'>Cause</p>
+                              <p>{cause}</p>
                             </div>
-                          </HoverCardTrigger>
-                          <HoverCardContent className='text-neutral-400 mx-2'>Expand To Read More</HoverCardContent>
-                        </HoverCard>
-                      </AccordionTrigger>
-                      {/* ---------------------------------------- Expanded Content ---------------------------------------- */}
-                      <AccordionContent>
-                        <div className='text-lg flex flex-col space-y-6 '>
-                          <p className=''>{description}</p>
-                          <div className='space-y-1'>
-                            <p className='font-semibold text-blue-600'>Cause</p>
-                            <p>{cause}</p>
-                          </div>
-                          <div className='space-y-1'>
-                            <p className='font-semibold text-blue-600'>Treatment</p>
-                            {cure.map((point, i) => {
-                              return <li key={i}>{point}</li>;
-                            })}
-                          </div>
-                          <Link href={link}>
-                            <div className='flex space-x-1 items-center  text-neutral-400 hover:text-neutral-600'>
-                              <p className='text-xs'>Read More</p>
-                              <ChevronRight className='w-4 ' />
+                            <div className='space-y-1'>
+                              <p className='font-semibold text-blue-600'>Treatment</p>
+                              {cure.map((point, i) => {
+                                return <li key={i}>{point}</li>;
+                              })}
                             </div>
-                          </Link>
-                        </div>
-                      </AccordionContent>
-                    </AccordionItem>
+                            <Link href={link}>
+                              <div className='flex space-x-1 items-center  text-neutral-400 hover:text-neutral-600'>
+                                <p className='text-xs'>Read More</p>
+                                <ChevronRight className='w-4 ' />
+                              </div>
+                            </Link>
+                          </div>
+                        </AccordionContent>
+                      </AccordionItem>
+                    </MotionWrap2>
                   </Accordion>
                 ))}
               </div>
