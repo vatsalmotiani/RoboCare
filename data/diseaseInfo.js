@@ -81,7 +81,7 @@ const disease_info = [
   },
   {
     id: 10,
-    name: "Hypertension",
+    name: "Hypertension ",
     description: "Hypertension, also known as high blood pressure, is a condition where blood pressure in the arteries is consistently high. Hypertension is common and can be serious if left untreated.",
     cause: "Hypertension can be caused by unhealthy lifestyle choices which include a diet high in saturated and trans fat, Tobacco and alcohol, and Stress.",
     cure: ["There is no cure for hypertension but lifestyle changes and medications can help control it"],
