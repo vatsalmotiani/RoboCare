@@ -54,6 +54,14 @@ export default function Footer() {
               <p>Sign Out</p>
             </button>
           )}
+          {!isSignedIn && (
+            <Link
+              href='/sign-in'
+              className={` text-md ${pathname == "/sign-in" ? "font-medium text-neutral-300" : " hover:text-neutral-500 text-neutral-600 "}`}
+            >
+              Sign In
+            </Link>
+          )}
         </div>
       </div>
     </div>

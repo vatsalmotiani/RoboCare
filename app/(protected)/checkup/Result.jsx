@@ -1,7 +1,7 @@
 "use client";
 
 import { Skeleton } from "../../../components/ui/skeleton";
-import { Bot, Download, Mail, ShieldAlert, ThumbsDown, ThumbsUp, X } from "lucide-react";
+import { Bot, Download, Mail, ShieldAlert, ThumbsDown, ThumbsUp, BadgeInfo, ChevronRight } from "lucide-react";
 import { Button } from "../../../components/ui/button";
 import { useState } from "react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../../../components/ui/accordian";
@@ -9,6 +9,7 @@ import { HoverCard, HoverCardContent, HoverCardTrigger } from "../../../componen
 import { findDisease, disease_info } from "../../../data/diseaseInfo";
 import { useToast } from "../../../components/ui/use-toast";
 import { useUser } from "@clerk/nextjs";
+import Link from "next/link";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import PDFFile from "../../../pdf/PDFFile";
 
@@ -166,7 +167,7 @@ export default function Result({ responseData, loading, errorStatus }) {
 
               {/* ---------------------------------------- Disease Listing ---------------------------------------- */}
               <div className=''>
-                {combinedData.map(({ disease, percentage, description, name, cause, cure, id }, i) => (
+                {combinedData.map(({ disease, percentage, description, name, cause, cure, id, link }, i) => (
                   <Accordion
                     key={id}
                     type='single'
@@ -201,6 +202,12 @@ export default function Result({ responseData, loading, errorStatus }) {
                               return <li key={i}>{point}</li>;
                             })}
                           </div>
+                          <Link href={link}>
+                            <div className='flex space-x-1 items-center  text-neutral-400 hover:text-neutral-600'>
+                              <p className='text-xs'>Read More</p>
+                              <ChevronRight className='w-4 ' />
+                            </div>
+                          </Link>
                         </div>
                       </AccordionContent>
                     </AccordionItem>
