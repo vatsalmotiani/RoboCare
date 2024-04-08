@@ -223,11 +223,12 @@ export default function Result({ responseData, loading, errorStatus }) {
                   <PDFDownloadLink
                     document={
                       <PDFFile
-                        data={combinedData}
+                        // data={combinedData}
                         getFirstName={() => user.firstName} // Function returning firstName
                         getData={() => combinedData} // Function returning firstName
                       />
                     }
+                    // fileName={`User_Report_RoboCare`}
                     fileName={`${user.firstName}_Report_RoboCare`}
                   >
                     {({ loading }) => (loading ? "Loading Document..." : "Download Report")}

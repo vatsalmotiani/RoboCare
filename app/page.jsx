@@ -20,23 +20,25 @@ export default function page() {
   };
   const Landing = () => {
     return (
-      <div className='flex flex-col space-y-8 p-8 md:p-24'>
+      <div className='flex xl:flex-row flex-col space-y-8 xl:space-y-0 p-8 md:p-24 items-center xl:space-x-16 space-x-0'>
         <Image
-          src='/flower.svg'
-          height={60}
-          width={60}
-          alt='flower'
+          src='/art1.svg'
+          height={600}
+          width={600}
+          alt='art'
         />
-        <p className='text-neutral-900 md:leading-normal leading-normal text-4xl md:text-7xl text-wrap font-oswald'>
-          Empowering informed health decisions with <span className='text-blue-600'>ML-driven</span> symptom analysis.
-        </p>
-        <p className='text-md text-neutral-400 leading-relaxed '>
-          Empowering you with knowledge about your health is our mission at RoboCare. With our intuitive symptom checker, you can quickly and conveniently input your symptoms and receive an instant analysis of potential diseases or conditions. Whether you are experiencing common ailments or more complex conditions, our symptom checker is designed to help you understand your health better.
-        </p>
-        {/* <Separator /> */}
-        <Link href='/checkup'>
-          <Button className='w-full p-8 text-md rounded-xl bg-blue-600 hover:bg-blue-800 text-white gap-2 '>Get Started</Button>
-        </Link>
+        <div className='flex flex-col space-y-8'>
+          <p className='text-neutral-900 md:leading-normal leading-normal text-4xl md:text-5xl text-wrap font-oswald'>
+            Empowering informed health decisions with <span className='text-blue-600'>ML-driven</span> symptom analysis.
+          </p>
+          <p className='text-md text-neutral-400 leading-relaxed '>
+            Empowering you with knowledge about your health is our mission at RoboCare. With our intuitive symptom checker, you can quickly and conveniently input your symptoms and receive an instant analysis of potential diseases or conditions. Whether you are experiencing common ailments or more complex conditions, our symptom checker is designed to help you understand your health better.
+          </p>
+          {/* <Separator /> */}
+          <Link href='/checkup'>
+            <Button className='w-full p-8 text-md rounded-xl bg-blue-600 hover:bg-blue-800 text-white gap-2 '>Get Started</Button>
+          </Link>
+        </div>
       </div>
     );
   };

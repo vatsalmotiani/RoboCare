@@ -84,6 +84,7 @@ const PDFFile = ({ getFirstName, getData }) => (
         </View>
 
         <View style={styles.header}>
+          {/* <Text style={styles.title}>Health Assessment Results</Text> */}
           <Text style={styles.title}>{getFirstName()}&apos;s Health Assessment Results</Text>
         </View>
 

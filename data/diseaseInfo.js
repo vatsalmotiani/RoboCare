@@ -57,7 +57,7 @@ const disease_info = [
   },
   {
     id: 7,
-    name: "Diabetes",
+    name: "Diabetes ",
     description: "Diabetes is a chronic disease that occurs when the body doesn't produce enough insulin or can't use it properly, causing high levels of blood sugar (glucose).",
     cause: "There are various causes but some commonly noted ones are Obesity, Physicial Inactivity, Advanced age, and Genetics.",
     cure: ["There is no cure for diabetes, but there are many treatments that can help manage symptoms like Immunotherapy and Lifestyle changes."],
